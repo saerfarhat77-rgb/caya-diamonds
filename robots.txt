@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://cayadiamonds.com.br/sitemap.xml
