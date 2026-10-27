@@ -14,7 +14,7 @@
 <link rel="icon" href="icone-192.png">
 <link rel="apple-touch-icon" href="icone-apple-180.png">
 <link rel="preload" href="../assets/fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/site.css?v=20261027002000">
+<link rel="stylesheet" href="../assets/site.css?v=20261027002136">
 <style>
 :root{--ok:#141414;--suave:rgba(20,20,20,.06);--suave-2:rgba(20,20,20,.12);--barra:64px;--ease-saida:cubic-bezier(.16,1,.3,1)}
 html{scrollbar-color:var(--linha) transparent}
@@ -289,8 +289,8 @@ body{min-height:100dvh}
   <p class="msg" id="av-msg" role="status"></p>
 </div>
 
-<script src="../data/catalogo.js?v=20261027002000"></script>
-<script src="../js/comum.js?v=20261027002000"></script>
+<script src="../data/catalogo.js?v=20261027002136"></script>
+<script src="../js/comum.js?v=20261027002136"></script>
 <script>
 (async function(){
 const {C,brl}=Caya, $=s=>document.querySelector(s);
@@ -329,11 +329,11 @@ function contar(el,valor,fmt){
 /* ---------- graficos (uma serie cada, desenhados aqui) ---------- */
 const graficos=new Map();
 const rotuloDe=d=>d.hora!=null?String(d.hora).padStart(2,'0')+'h':diaCurto(d.dia);
-function grafico(el,eixo,serie,campo,fmt,tipo){
+function grafico(el,eixo,serie,campo,fmt,tipo,minimo){
   const g=graficos.get(el)||{pts:[],tipo};
   graficos.set(el,g);
   const W=el.clientWidth||600, H=el.clientHeight||220, pad={t:14,b:10,r:56,l:0};   // a direita fica a escala
-  const vals=serie.map(d=>d[campo]||0), max=Math.max(1,...vals);
+  const vals=serie.map(d=>d[campo]||0), max=Math.max(minimo||1,...vals);   // sem dados, a escala nao vira centavos
   const topo=(()=>{const p=Math.pow(10,Math.floor(Math.log10(max))); return Math.ceil(max/p)*p;})();
   const x=i=>vals.length<2?W/2:pad.l+(W-pad.l-pad.r)*i/(vals.length-1);
   const y=v=>pad.t+(H-pad.t-pad.b)*(1-v/topo);
@@ -421,8 +421,8 @@ function desenharAba(nome){
     const horas=d.por_hora||[]; let soma=0;
     const acumulada=horas.map(h=>({hora:h.hora,receita:(soma+=h.receita||0)}));
     $('#rec-t').textContent=dias===1?'somando ao longo do dia':'por dia';
-    if(dias===1&&acumulada.length) grafico($('#g-receita'),$('#x-receita'),acumulada,'receita',v=>R(v),'linha');
-    else grafico($('#g-receita'),$('#x-receita'),d.por_dia,'receita',v=>R(v),'linha');
+    if(dias===1&&acumulada.length) grafico($('#g-receita'),$('#x-receita'),acumulada,'receita',v=>R(v),'linha',100000);
+    else grafico($('#g-receita'),$('#x-receita'),d.por_dia,'receita',v=>R(v),'linha',100000);
     const f=[['Visitaram',r.visitantes],['Sacola',r.sacolas],['Pagamento',r.pagamentos],['Compraram',r.vendas]];
     $('#funil').innerHTML=f.map((x,k)=>`<div class="etapa"><span class="fase">${x[0]}${k?`<small>${pct(x[1],f[k-1][1])} da etapa anterior</small>`:''}</span><span class="trilho"><i data-w="${r.visitantes?Math.max(x[1]?1.5:0,x[1]/r.visitantes*100):0}"></i></span><span class="num">${N(x[1])}</span></div>`).join('');
     requestAnimationFrame(()=>document.querySelectorAll('#funil .trilho i').forEach(i=>i.style.width=i.dataset.w+'%'));
@@ -435,7 +435,7 @@ function desenharAba(nome){
       .map(x=>`<div><dt>${x[0]}</dt><dd class="num">${x[1]}</dd></div>`).join('');
     const hojeHoras=dias===1&&(d.por_hora||[]).length;
     $('#receita-2-h').textContent=hojeHoras?'Receita por hora':'Receita por dia';
-    grafico($('#g-receita-2'),$('#x-receita-2'),hojeHoras?d.por_hora:d.por_dia,'receita',v=>R(v),hojeHoras?'barras':'linha');
+    grafico($('#g-receita-2'),$('#x-receita-2'),hojeHoras?d.por_hora:d.por_dia,'receita',v=>R(v),hojeHoras?'barras':'linha',100000);
     const st={pago:'<span class="etq cheia">pago</span>',pendente:'<span class="etq contorno">não pago</span>',cancelado:'<span class="etq">cancelado</span>'};
     $('#ped-t').textContent=d.pedidos.length?N(d.pedidos.length):'';
     $('#pedidos').innerHTML=d.pedidos.length?d.pedidos.map(p=>`<div class="reg"><span>${esc(p.cliente||'Sem conta')}<small>${hora(p.quando)} · ${esc(p.origem||'origem desconhecida')}</small></span>
@@ -449,7 +449,7 @@ function desenharAba(nome){
     $('#vi-fina').innerHTML=`${plural(r.sessoes,'visita','visitas')} e ${plural(r.paginas,'página vista','páginas vistas')}. Conversão de <b>${pct(r.vendas,r.visitantes)}</b>.`;
     const porHora=dias===1&&(d.por_hora||[]).length;
     $('#visitas-h').textContent=porHora?'Visitantes por hora':'Visitantes por dia';
-    grafico($('#g-visitas'),$('#x-visitas'),porHora?d.por_hora:d.por_dia,'visitantes',v=>N(Math.round(v)),'barras');
+    grafico($('#g-visitas'),$('#x-visitas'),porHora?d.por_hora:d.por_dia,'visitantes',v=>N(Math.round(v)),'barras',5);
     barras($('#origens'),d.origens.map(o=>({nome:esc(o.origem),v:o.visitantes,sub:`${N(o.sacolas)} na sacola · ${N(o.vendas)} ${o.vendas===1?'venda':'vendas'}${o.receita?' · '+R(o.receita):''}`})),'Nenhuma visita no período.');
     barras($('#vistas'),d.pecas_vistas.slice(0,10).map(p=>({nome:esc(nomePeca(p.peca)),v:p.visitantes})),'Nenhuma peça vista.');
     barras($('#aparelhos'),d.dispositivos.map(x=>({nome:esc(x.nome),v:x.sessoes})));
