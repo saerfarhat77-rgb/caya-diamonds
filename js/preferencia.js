@@ -10,6 +10,14 @@
   const X = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg>';
 
   Caya.montarPreferencia = function () {
+    /* joia personalizada: ultimo item do menu de colecoes */
+    const indice = document.getElementById('indice');
+    if (indice && !indice.querySelector('.link-pz')) {
+      const pz = document.createElement('a');
+      pz.className = 'link-pz'; pz.href = Caya.pagina('personalizada'); pz.textContent = 'Personalizada';
+      if (Caya.naPagina('personalizada')) pz.setAttribute('aria-current', 'page');
+      indice.append(pz);
+    }
     /* botao no topo, antes da sacola */
     const sacolaBtn = document.getElementById('abrir-sacola');
     const botao = document.createElement('button');

@@ -9,7 +9,7 @@ self.addEventListener('push', (e) => {
   e.waitUntil(Promise.all([
     self.registration.showNotification(d.title || 'Caya', {
       body: d.body || '', tag: d.tag || 'caya', renotify: true, requireInteraction: !!d.venda,
-      icon: 'icone-192.png', badge: 'selo-96.png', data: { venda: !!d.venda },
+      icon: 'icone-192.png', badge: 'selo-96.png', data: { venda: !!d.venda, aba: d.aba || '' },
     }),
     /* app aberto: atualiza os numeros na hora */
     self.clients.matchAll({ type: 'window' }).then((cs) => cs.forEach((c) => c.postMessage({ tipo: 'push', venda: !!d.venda }))),
@@ -18,9 +18,10 @@ self.addEventListener('push', (e) => {
 
 self.addEventListener('notificationclick', (e) => {
   e.notification.close();
+  const aba = (e.notification.data && e.notification.data.aba) || '';
   e.waitUntil(self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then((cs) => {
     const aberto = cs.find((c) => c.url.startsWith(self.registration.scope));
-    if (aberto) return aberto.focus();
-    return self.clients.openWindow(self.registration.scope + (e.notification.data && e.notification.data.venda ? '#vendas' : ''));
+    if (aberto) return (aba && aberto.navigate ? aberto.navigate(self.registration.scope + '#' + aba) : Promise.resolve(aberto)).then((c) => (c || aberto).focus());
+    return self.clients.openWindow(self.registration.scope + (aba ? '#' + aba : ''));
   }));
 });
