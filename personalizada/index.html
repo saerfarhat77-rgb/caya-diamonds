@@ -8,7 +8,7 @@
 <link rel="icon" href="../assets/marca/favicon.png">
 <meta name="description" content="Monte o seu anel de diamante natural e ouro 18k, ou mande a sua ideia com fotos de referência. A Caya responde e marca uma conversa.">
 <link rel="preload" href="../assets/fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/site.css?v=20261101083427">
+<link rel="stylesheet" href="../assets/site.css?v=20261101083928">
 <style>
 .pz [hidden]{display:none!important}
 .pz-topo{max-width:1240px;margin:0 auto;padding:clamp(36px,5vw,72px) var(--g) 0}
@@ -262,10 +262,10 @@
   <div><b>Ajuda</b><p><a href="../ajuda/?p=aro">Medida do aro</a><br><a href="../ajuda/?p=privacidade">Privacidade</a></p></div>
 </footer>
 
-<script src="../data/catalogo.js?v=20261101083427"></script>
-<script src="../js/comum.js?v=20261101083427"></script>
-<script src="../js/sacola.js?v=20261101083427"></script>
-<script src="../js/preferencia.js?v=20261101083427"></script>
+<script src="../data/catalogo.js?v=20261101083928"></script>
+<script src="../js/comum.js?v=20261101083928"></script>
+<script src="../js/sacola.js?v=20261101083928"></script>
+<script src="../js/preferencia.js?v=20261101083928"></script>
 <script>
 /* opcoes do anel e estado da pagina. A foto final sai destas escolhas (texto); o 3D e so uma previa. */
 window.PZ=(function(){
@@ -736,7 +736,7 @@ const rotTopo=document.createElement('div'); rotTopo.className='vista'; rotTopo.
 palco.append(rotAro,rotTopo);
 function posicionar(az){ const pol=1.35, T=controles.target; camera.position.set(T.x+distancia*Math.sin(pol)*Math.sin(az),T.y+distancia*Math.cos(pol),T.z+distancia*Math.sin(pol)*Math.cos(az)); camera.lookAt(T); }
 function posicionarTopo(){
-  const az=Math.atan2(camera.position.x-controles.target.x,camera.position.z-controles.target.z), pol=0.9, d=raioTopo*5.4+3;
+  const az=Math.atan2(camera.position.x-controles.target.x,camera.position.z-controles.target.z), pol=0.9, d=Math.max(44,raioTopo*5.4+3);   /* distancia fixa: 10 pts aparece pequeno e 3 ct grande, como na mao */
   camTopo.position.set(centroTopo.x+d*Math.sin(pol)*Math.sin(az),centroTopo.y+d*Math.cos(pol),centroTopo.z+d*Math.sin(pol)*Math.cos(az)); camTopo.lookAt(centroTopo);
 }
 function pedirQuadro(){ if(!pedido){ pedido=true; requestAnimationFrame(quadro); } }
@@ -762,7 +762,8 @@ function ajustar(){ const w=palco.clientWidth, h=palco.clientHeight; renderer.se
 new ResizeObserver(ajustar).observe(palco);
 new IntersectionObserver(([e])=>{ visivel=e.isIntersecting; if(visivel) pedirQuadro(); }).observe(palco);
 ajustar();
-window.PZ.aoMudar(c=>{ construir(c); pedirQuadro(); });
+window.PZ.aoMudar(c=>{ construir(c); pedirQuadro();
+  const o=window.PZ.OPC.pts.find(x=>x.v===c.pts); if(o) rotTopo.querySelector('span').textContent='Pedra e garras · '+o.t+' · '+o.s; });
 
 /* foto do anel para o pedido: vista frontal em 3/4, sem mexer na camera da cliente */
 window.PZ.foto=()=>{
