@@ -15,6 +15,7 @@
         <div class="lista" id="lista"></div>
         <footer>
           <div class="frete"><span>Frete</span><span>Grátis</span></div>
+          <div class="frete" id="economia" hidden></div>
           <div class="beneficios" id="beneficios" hidden></div>
           <div class="tot"><span>Total</span><span class="mono" id="total">R$ 0</span></div>
           <p class="parcela" id="parcela"></p>
@@ -45,6 +46,10 @@
     sacola.ouvir((its) => {
       $('#qtd').textContent = sacola.quantidade();
       mostrarTotal(sacola.total());
+      /* promocao: quanto o desconto ja tirou do que esta na sacola */
+      const ec = $('#economia'), economia = sacola.economia();
+      ec.hidden = !economia;
+      if (economia) ec.innerHTML = `<span>Você economiza</span><span class="mono">${brl(economia)}</span>`;
       if (Caya.contaAtiva()) atualizarBeneficios();
       const falta = false;
       const fp = $('#fechar-pedido');
@@ -60,7 +65,10 @@
       its.forEach((i) => {
         const n = sacola.camposAro(i);
         const d = document.createElement('div'); d.className = 'item';
-        d.innerHTML = `<img src="${raiz}${i.foto}" alt=""><div><b>${i.nome}</b><small>${i.detalhe}${i.qtd > 1 ? ' · ×' + i.qtd : ''}</small><button class="rm" type="button">Remover</button></div><span class="mono">${brl(i.preco * i.qtd)}</span>
+        const preco = i.preco_cheio
+          ? `<s class="de">${brl(i.preco_cheio * i.qtd)}</s><b class="por">${brl(i.preco * i.qtd)}</b>`
+          : brl(i.preco * i.qtd);
+        d.innerHTML = `<img src="${raiz}${i.foto}" alt=""><div><b>${i.nome}</b><small>${i.detalhe}${i.qtd > 1 ? ' · ×' + i.qtd : ''}</small><button class="rm" type="button">Remover</button></div><span class="mono preco-promo">${preco}</span>
           ${n ? `<div class="aros">${Array.from({ length: n }, (_, k) => campoAro(i, k, n)).join('')}<a class="link-medir" href="${Caya.pagina('medidor')}?item=${encodeURIComponent(i.chave)}">Medir</a></div>` : ''}`;
         d.querySelector('.rm').onclick = () => sacola.remover(i.chave);
         d.querySelectorAll('select').forEach((s) => { s.onchange = () => sacola.definirAro(i.chave, +s.dataset.n, s.value); });
@@ -70,7 +78,7 @@
     });
     function mostrarTotal(v) {
       $('#total').textContent = brl(v);
-      $('#parcela').textContent = v ? 'ou 10x de ' + brl(Math.ceil(v / 10 * 100) / 100) + ' sem juros' : '';
+      $('#parcela').textContent = v ? 'ou 10x de ' + Caya.parcela10(v) + ' sem juros' : '';
     }
     /* conta ligada: desconto da primeira compra e cashback, calculados pelo servidor */
     async function atualizarBeneficios() {
@@ -78,8 +86,10 @@
       if (!sacola.itens().length) { bx.hidden = true; return; }
       let s = null; try { s = await Caya.sessao(); } catch (_) {}
       if (!s) {
-        bx.hidden = false;
-        bx.innerHTML = `<a class="entrar-oferta" href="${Caya.pagina('conta')}?voltar=1"><b>15% off na primeira compra</b><span>Entre ou crie sua conta</span></a>`;
+        /* na promocao, so oferece os 15% da primeira compra se eles somarem com ela */
+        const soma = !Caya.promo || Caya.promo.acumula_primeira;
+        bx.hidden = !soma;
+        if (soma) bx.innerHTML = `<a class="entrar-oferta" href="${Caya.pagina('conta')}?voltar=1"><b>15% off na primeira compra</b><span>Entre ou crie sua conta</span></a>`;
         return;
       }
       let d; try { d = await Caya.previa(usarCashback); } catch (_) { return; }

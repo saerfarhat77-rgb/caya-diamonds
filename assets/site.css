@@ -404,3 +404,35 @@ a.foto{display:block}
 .sacola footer .ganha{font-size:12px;color:var(--cinza)}
 .conta-btn{display:grid;place-items:center;width:34px;height:34px;flex:none}
 .conta-btn svg{width:19px;height:19px}
+
+/* ---------- promocao (faixa do topo e preco de antes riscado) ----------
+   Entra e sai pela configuracao em _tools/promocao.json; sem promocao, nada disso
+   chega a ser escrito na pagina. */
+.faixa-promo{background:#0A0A0A;color:#FFFFFF}
+.faixa-promo p{display:flex;justify-content:center;align-items:baseline;gap:14px;flex-wrap:wrap;text-align:center;
+  padding:10px var(--g);font-size:11px;font-weight:400;font-stretch:110%;letter-spacing:.18em;text-transform:uppercase}
+.faixa-promo b{font-weight:400}
+.faixa-promo span{color:#FFFFFF;letter-spacing:.14em}
+.preco-promo{display:inline-flex;align-items:baseline;gap:9px}
+.preco-promo .de{color:var(--cinza);text-decoration-thickness:1px;font-size:.88em}
+.preco-promo .por{font-weight:400}
+/* nos cartoes o preco e estreito: os dois valores ficam um sobre o outro */
+.peca-nome .preco-promo{flex-direction:column;align-items:flex-end;gap:1px}
+.peca-nome .preco-promo .de{font-size:12px}
+.preco-promo .dez{font-size:11px;font-weight:400;color:var(--cinza);letter-spacing:.02em;white-space:nowrap}
+.item .preco-promo{flex-direction:column;align-items:flex-end;gap:1px}
+.item .preco-promo .de{font-size:12px}
+.info .preco .de{font-size:15px}
+.selo-promo{align-self:start;justify-self:start;border:1px solid var(--preto);padding:4px 8px;
+  font-size:10px;font-weight:400;font-stretch:110%;letter-spacing:.16em;text-transform:uppercase}
+.selo-promo.forte{background:#0A0A0A;border-color:#0A0A0A;color:#FFFFFF}
+/* peca com desconto maior que o geral: selo na foto */
+.selo-foto{position:absolute;top:12px;left:12px;background:#0A0A0A;color:#FFFFFF;padding:7px 11px;
+  font-size:12px;font-weight:500;font-stretch:110%;letter-spacing:.14em;text-transform:uppercase;pointer-events:none}
+@media (max-width:760px){
+  .selo-foto{top:8px;left:8px;padding:5px 8px;font-size:10px;letter-spacing:.12em}
+  .faixa-promo p{gap:9px;padding:9px 14px;font-size:10px;letter-spacing:.12em}
+  .peca-nome .preco-promo{align-items:flex-start}
+  .peca-nome .preco-promo .de{font-size:11px}
+  .info .preco .de{font-size:13px}
+}

@@ -7,7 +7,7 @@
 <link rel="icon" href="../assets/marca/favicon.png">
 <meta name="description" content="Diamante natural e ouro 18k. Caya Colors, Halo, Candy Cut, Mosaico e Clássicos.">
 <link rel="preload" href="../assets/fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/site.css?v=20261101083928">
+<link rel="stylesheet" href="../assets/site.css?v=20261103114057">
 <link rel="preload" as="image" href="../assets/hero/rosa.webp">
 <style>
 /* ---------- hero: um diamante, seis cores (so nesta copia) ---------- */
@@ -86,7 +86,7 @@
       <div class="hero-cores-lista" role="group" aria-label="Cor da banda" id="hero-cores"></div>
       <div class="hero-acao">
         <a class="comprar" id="hero-link" href="../peca/?peca=caya-colors"><span>Escolher o meu</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
-        <span class="hero-preco">a partir de <b id="hero-preco"></b></span>
+        <span class="hero-preco">a partir de <b id="hero-preco" class="preco-promo"></b></span>
       </div>
     </div>
   </section>
@@ -107,10 +107,12 @@
   <div><b>Ajuda</b><p><a href="../ajuda/?p=trocas">Trocas e devoluções</a><br><a href="../ajuda/?p=garantia">Garantia</a><br><a href="../ajuda/?p=entrega">Prazos e entrega</a><br><a href="../ajuda/?p=aro">Medida do aro</a></p></div>
 </footer>
 
-<script src="../data/catalogo.js?v=20261101083928"></script>
-<script src="../js/comum.js?v=20261101083928"></script>
-<script src="../js/sacola.js?v=20261101083928"></script>
-<script src="../js/preferencia.js?v=20261101083928"></script>
+<script src="../data/catalogo.js?v=20261103114057"></script>
+<script src="../data/promo.js?v=20261103114057"></script>
+<script src="../js/comum.js?v=20261103114057"></script>
+<script src="../js/sacola.js?v=20261103114057"></script>
+<script src="../js/preferencia.js?v=20261103114057"></script>
+<script src="../js/faixa.js?v=20261103114057"></script>
 <script>
 (function(){
 const {C,brl,ct,nomeBanda,corBanda,variacao,rotulo,aPartirDe,lerEndereco,gravarEndereco,sacola,linkWhatsApp,pedidoWhatsApp}=Caya;
@@ -142,9 +144,9 @@ function acao(p,getE){
 function montarColors(p){
   const e=Object.assign(Caya.padraoCom(p), sel&&sel.p.id===p.id?sel.e:{});
   const box=el('div',{class:'colors'});
-  box.innerHTML=`<a class="foto" href="#"><img alt="" width="1024" height="1272"></a>
+  box.innerHTML=`<a class="foto" href="#"><img alt="" width="1024" height="1272">${Caya.seloFoto(p)}</a>
     <div class="painel">
-      <div class="peca-nome"><h3><span class="pequeno">Anel</span>${p.nome}</h3><span class="mono" data-r="preco"></span></div>
+      <div class="peca-nome"><h3><span class="pequeno">Anel</span>${p.nome}</h3><span class="mono preco-promo" data-r="preco"></span></div>
       <p class="resumo">${p.resumo}</p>
       <div><div class="rot"><span class="pequeno">Pedra</span><b class="mono" data-r="pts"></b></div><div class="regua" role="group" aria-label="Pontos do diamante"></div></div>
       <div><div class="rot"><span class="pequeno">Banda</span><b data-r="banda"></b></div><div class="bandas" role="group" aria-label="Cor da banda"></div></div>
@@ -164,7 +166,7 @@ function montarColors(p){
     painel.querySelectorAll('.bandas button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.v===e.banda));
     $('[data-r=pts]',painel).textContent=ct(e.pts)+(variacao(p,e).gia?' · certificado GIA':'');
     $('[data-r=banda]',painel).textContent=nomeBanda(e.banda);
-    $('[data-r=preco]',painel).textContent=brl(v.preco);
+    $('[data-r=preco]',painel).innerHTML=Caya.precoCartao(v);
     $('a.foto',box).href=linkPeca(p,e);
     atual.pronto=true;
   }
@@ -175,9 +177,9 @@ function montarColors(p){
 function montarCollection(p){
   const e=Object.assign(Caya.padraoCom(p), sel&&sel.p.id===p.id?sel.e:{}), ed=EDITORIAL[p.id], maior=Math.max(...p.eixos.pts);
   const box=el('div',{class:'colors collection',id:'peca-'+p.id});
-  box.innerHTML=`<a class="foto" href="#"><img src="../${p.variacoes[0].fotos[0]}" alt="${p.nome}: caixa com o anel e as bandas nas seis cores" loading="lazy" width="1024" height="1272"></a>
+  box.innerHTML=`<a class="foto" href="#"><img src="../${p.variacoes[0].fotos[0]}" alt="${p.nome}: caixa com o anel e as bandas nas seis cores" loading="lazy" width="1024" height="1272">${Caya.seloFoto(p)}</a>
     <div class="painel">
-      <div class="peca-nome"><h3><span class="pequeno">${p.tipo}</span><a class="nome-link" href="#">${p.nome}</a></h3><span class="mono" data-r="preco"></span></div>
+      <div class="peca-nome"><h3><span class="pequeno">${p.tipo}</span><a class="nome-link" href="#">${p.nome}</a></h3><span class="mono preco-promo" data-r="preco"></span></div>
       <p class="resumo">${p.resumo}</p>
       <div><div class="rot"><span class="pequeno">Pedra</span><b class="mono" data-r="pts"></b></div><div class="regua" role="group" aria-label="Pontos do diamante"></div></div>
       <div><div class="rot"><span class="pequeno">As seis cores na caixa</span></div>
@@ -193,7 +195,7 @@ function montarCollection(p){
     const v=variacao(p,e);
     painel.querySelectorAll('.regua button').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.v===e.pts));
     $('[data-r=pts]',painel).textContent=ct(e.pts)+(variacao(p,e).gia?' · certificado GIA':'');
-    $('[data-r=preco]',painel).textContent=brl(v.preco);
+    $('[data-r=preco]',painel).innerHTML=Caya.precoCartao(v);
     box.querySelectorAll('a.foto,a.nome-link').forEach(a=>a.href=linkPeca(p,e));
     atual.pronto=true;
   }
@@ -203,8 +205,8 @@ function montarCollection(p){
 function montarPeca(p,sozinha){
   const e=Object.assign(Caya.padraoCom(p), sel&&sel.p.id===p.id?sel.e:{});
   const art=el('article',{class:'peca',id:'peca-'+p.id});
-  art.innerHTML=`<a class="foto" href="#"><img alt="" loading="lazy" width="1024" height="1272"></a>
-    <div class="peca-corpo"><div class="peca-nome"><h3><span class="pequeno">${p.tipo}</span><a class="nome-link" href="#">${p.nome}</a></h3><span class="mono" data-r="preco"></span></div></div>`;
+  art.innerHTML=`<a class="foto" href="#"><img alt="" loading="lazy" width="1024" height="1272">${Caya.seloFoto(p)}</a>
+    <div class="peca-corpo"><div class="peca-nome"><h3><span class="pequeno">${p.tipo}</span><a class="nome-link" href="#">${p.nome}</a></h3><span class="mono preco-promo" data-r="preco"></span></div></div>`;
   const corpo=$('.peca-corpo',art);
   if(sozinha) corpo.append(el('p',{class:'resumo'},p.resumo));
   const esc=el('div',{class:'escolhas'});
@@ -223,7 +225,7 @@ function montarPeca(p,sozinha){
     const v=variacao(p,e);
     trocarFoto(img,'../'+v.fotos[0]); img.alt=`${p.nome}${rotulo(p,e)?', '+rotulo(p,e):''}`;
     art.querySelectorAll('.opc,.ouro-b').forEach(b=>b.setAttribute('aria-pressed',String(e[b.dataset.k])===b.dataset.v));
-    $('[data-r=preco]',art).textContent=p.consulta?'sob consulta':brl(v.preco);
+    $('[data-r=preco]',art).innerHTML=p.consulta?'sob consulta':Caya.precoCartao(v);
     const g=$('.gia',art); if(g) g.hidden=!v.gia;
     art.querySelectorAll('a.foto,a.nome-link').forEach(a=>a.href=linkPeca(p,e));
     atual.pronto=true;
@@ -244,7 +246,7 @@ const EDITORIAL={
     ['Pedra',c.id==='candy-cut'||c.id==='mosaico'?'diamante + esmeralda':'diamante natural'],
     ['Ouro',c.id==='caya-colors'?'18k':'18k branco ou amarelo'],
     faixa.length>1?['Pontos',faixa[0]+' a '+faixa[faixa.length-1]]:null,
-    ps.every(p=>p.consulta)?['Preço','sob consulta']:['A partir de',brl(Math.min(...ps.filter(p=>!p.consulta).map(aPartirDe)))]].filter(Boolean);
+    ps.every(p=>p.consulta)?['Preço','sob consulta']:['A partir de','<span class="preco-promo">'+Caya.precoHTML(Caya.maisBarata(ps.filter(p=>!p.consulta)))+'</span>']].filter(Boolean);
   const sec=el('section',{class:'lote dobrado',id:c.id,'aria-labelledby':'t-'+c.id});
   const hN=c.id==='caya-colors'?'h2':'h1';
   sec.innerHTML=`<header class="lote-cab"><div><${hN} id="t-${c.id}">${c.nome}</${hN}><p class="linha">${c.linha}</p></div>
@@ -267,6 +269,7 @@ document.querySelectorAll('.lote').forEach(s=>io.observe(s));
 document.querySelectorAll('[data-zap]').forEach(a=>a.href=Caya.linkWhatsApp('Olá! Gostaria de ajuda de uma especialista Caya para escolher minha joia.'));
 Caya.montarSacola('../');
 Caya.montarPreferencia();
+Caya.montarFaixa();
 /* hero: o anel troca de cor numa onda que nasce do diamante */
 (function(){
   const palco=document.getElementById('hero-palco'), lista=document.getElementById('hero-cores'), sec=document.getElementById('hero');
@@ -276,7 +279,7 @@ Caya.montarPreferencia();
   const src=c=>`../assets/hero/${c}${cel?'-m':''}.webp`;
   let atual=-1, timer=null, parado=reduz;
   sec.style.setProperty('--tempo',TEMPO+'ms');
-  $('#hero-preco').textContent=brl(Caya.aPartirDe(p));
+  $('#hero-preco').innerHTML=Caya.precoHTML(Caya.maisBarata(p));
   ORDEM.forEach((c,k)=>{
     const b=el('button',{type:'button','aria-pressed':'false','aria-label':'Banda '+nomeBanda(c)},`<i style="background:${corBanda(c)}"></i>${nomeBanda(c)}<span class="tempo"></span>`);
     b.onclick=()=>{ir(k);parado=true;clearInterval(timer);sec.classList.remove('rodando')};

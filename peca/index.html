@@ -7,7 +7,7 @@
 <link rel="icon" href="../assets/marca/favicon.png">
 <meta name="description" content="Diamante natural e ouro 18k.">
 <link rel="preload" href="../assets/fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/site.css?v=20261101083928">
+<link rel="stylesheet" href="../assets/site.css?v=20261103114057">
 <style>
 /* ---------- pagina da peca ---------- */
 .trilha{padding:28px var(--g) 0;font-size:11px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:var(--cinza);font-stretch:110%}
@@ -124,10 +124,12 @@
   <div><b>Ajuda</b><p><a href="../ajuda/?p=trocas">Trocas e devoluções</a><br><a href="../ajuda/?p=garantia">Garantia</a><br><a href="../ajuda/?p=entrega">Prazos e entrega</a><br><a href="../ajuda/?p=aro">Medida do aro</a></p></div>
 </footer>
 
-<script src="../data/catalogo.js?v=20261101083928"></script>
-<script src="../js/comum.js?v=20261101083928"></script>
-<script src="../js/sacola.js?v=20261101083928"></script>
-<script src="../js/preferencia.js?v=20261101083928"></script>
+<script src="../data/catalogo.js?v=20261103114057"></script>
+<script src="../data/promo.js?v=20261103114057"></script>
+<script src="../js/comum.js?v=20261103114057"></script>
+<script src="../js/sacola.js?v=20261103114057"></script>
+<script src="../js/preferencia.js?v=20261103114057"></script>
+<script src="../js/faixa.js?v=20261103114057"></script>
 <script>
 (function(){
 const {C,brl,ct,nomeBanda,corBanda,peca,variacao,rotulo,aPartirDe,lerEndereco,sacola,linkWhatsApp}=Caya;
@@ -143,6 +145,7 @@ $('#zap').href=linkWhatsApp('Olá! Vim pelo site da Caya.');
 C.colecoes.forEach(c=>$('#indice').append(el('a',{href:'../colecao/?linha='+c.id},c.nome)));
 Caya.montarSacola(RAIZ);
 Caya.montarPreferencia();
+Caya.montarFaixa();
 
 const sel=lerEndereco();
 const main=$('#principal');
@@ -158,7 +161,7 @@ main.innerHTML=`
   <nav class="trilha" aria-label="Você está em"><a href="../">Início</a><span>/</span><a href="../colecao/?linha=${col.id}">${col.nome}</a><span>/</span>${p.nome}</nav>
   <section class="ficha-peca">
     <div class="galeria">
-      <div class="foto"><img alt="" width="1024" height="1272"></div>
+      <div class="foto"><img alt="" width="1024" height="1272">${Caya.seloFoto(p)}</div>
       <div class="miniaturas" role="group" aria-label="Fotos da peça"></div>
       <p class="nota-foto" hidden></p>
     </div>
@@ -166,7 +169,8 @@ main.innerHTML=`
       <div class="topo-info">
         <span class="pequeno">${p.tipo}</span>
         <h1>${p.nome}</h1>
-        <span class="preco" data-r="preco"></span>
+        <span class="preco preco-promo" data-r="preco"></span>
+        <span class="selo-promo" data-r="selo" hidden></span>
         <span class="parcela" data-r="parcela"></span>
         <span class="gia" data-r="gia" hidden>Diamante com certificado GIA</span>
         <p class="resumo">${p.resumo}</p>
@@ -258,8 +262,10 @@ function montarGaleria(v){
 /* ---- atualizar tudo quando a escolha muda ---- */
 function atual(){
   const v=variacao(p,e);
-  $('[data-r=preco]',main).textContent=p.consulta?'Sob consulta':brl(v.preco);
-  $('[data-r=parcela]',main).textContent=p.consulta?'':'ou 10x de '+brl(Math.ceil(v.preco/10*100)/100)+' sem juros';
+  $('[data-r=preco]',main).innerHTML=p.consulta?'Sob consulta':Caya.precoHTML(v);
+  $('[data-r=parcela]',main).textContent=p.consulta?'':'ou 10x de '+Caya.parcela10(v.preco)+' sem juros';
+  const selo=$('[data-r=selo]',main), real=Caya.pctReal(v), geral=Caya.promo?Caya.promo.percentual:0;
+  selo.hidden=p.consulta||!real||real<geral; selo.textContent=`−${real}% em novembro`; selo.classList.toggle('forte',real>geral);
   $('[data-r=gia]',main).hidden=!v.gia;
   main.querySelectorAll('[data-k]').forEach(b=>b.setAttribute('aria-pressed',String(e[b.dataset.k])===b.dataset.v));
   const r=(k,t)=>{const x=$(`[data-r=${k}]`,main); if(x) x.textContent=t};
@@ -295,8 +301,8 @@ let outras=C.pecas.filter(x=>x.colecao===p.colecao&&x.id!==p.id), titulo='Mais d
 if(!outras.length){outras=C.pecas.filter(x=>x.id!==p.id).slice(0,4); titulo='Outras peças'; link='<a href="../">Ver todas</a>';}
 const mais=el('section',{class:'mais','aria-labelledby':'t-mais'},`<header class="lote-cab"><h2 id="t-mais">${titulo}</h2>${link}</header><div class="pecas"></div>`);
 outras.slice(0,4).forEach(x=>{const v=variacao(x,x.padrao); const q=new URLSearchParams({peca:x.id});
-  $('.pecas',mais).append(el('article',{class:'peca'},`<a class="foto" href="?${q}"><img src="${RAIZ+v.fotos[0]}" alt="${x.nome}" loading="lazy" width="1024" height="1272"></a>
-    <div class="peca-corpo"><div class="peca-nome"><h3><span class="pequeno">${x.tipo}</span><a class="nome-link" href="?${q}">${x.nome}</a></h3><span class="mono">${x.consulta?'sob consulta':'a partir de '+brl(aPartirDe(x))}</span></div></div>`))});
+  $('.pecas',mais).append(el('article',{class:'peca'},`<a class="foto" href="?${q}"><img src="${RAIZ+v.fotos[0]}" alt="${x.nome}" loading="lazy" width="1024" height="1272">${Caya.seloFoto(x)}</a>
+    <div class="peca-corpo"><div class="peca-nome"><h3><span class="pequeno">${x.tipo}</span><a class="nome-link" href="?${q}">${x.nome}</a></h3><span class="mono preco-promo">${x.consulta?'sob consulta':Caya.precoHTML(Caya.maisBarata(x),'a partir de ')}</span></div></div>`))});
 main.append(mais);
 })();
 </script>

@@ -4,18 +4,57 @@
   /* enderecos das paginas: em teste/ (desenvolvimento e previa) ou com nome limpo (site oficial) */
   const SCRIPT = document.currentScript.src;
   const RAIZ = new URL('..', SCRIPT).href;
-  const DEV = /\/teste\/comum\.js/.test(SCRIPT);
-  const PAGINAS = { inicio: ['teste/papel/index.html', ''], peca: ['teste/v2-peca/index.html', 'peca/'],
-                    linha: ['teste/v2-linha/index.html', 'colecao/'], info: ['teste/v2-info/index.html', 'ajuda/'],
-                    medidor: ['teste/v2-medidor/index.html', 'medir-aro/'], obrigado: ['teste/v2-obrigado/index.html', 'obrigado/'],
-                    conta: ['teste/v2-conta/index.html', 'conta/'],
-                    personalizada: ['teste/v2-personalizada/index.html', 'personalizada/'] };
+  /* pasta de desenvolvimento: teste/ ou uma copia de teste (teste-promo/); no site
+     oficial o script fica em js/ e o endereco das paginas e o limpo */
+  const PASTA = (SCRIPT.match(/\/(teste[^/]*)\/comum\.js/) || [])[1] || '';
+  const DEV = !!PASTA;
+  const PAGINAS = { inicio: [PASTA + '/papel/index.html', ''], peca: [PASTA + '/v2-peca/index.html', 'peca/'],
+                    linha: [PASTA + '/v2-linha/index.html', 'colecao/'], info: [PASTA + '/v2-info/index.html', 'ajuda/'],
+                    medidor: [PASTA + '/v2-medidor/index.html', 'medir-aro/'], obrigado: [PASTA + '/v2-obrigado/index.html', 'obrigado/'],
+                    conta: [PASTA + '/v2-conta/index.html', 'conta/'],
+                    personalizada: [PASTA + '/v2-personalizada/index.html', 'personalizada/'] };
   const pagina = (n) => RAIZ + PAGINAS[n][DEV ? 0 : 1];
   const naPagina = (n) => location.href.split(/[?#]/)[0].replace(/index\.html$/, '') === pagina(n).replace(/index\.html$/, '');
-  const brl = (n) => 'R$ ' + n.toLocaleString('pt-BR', { minimumFractionDigits: Number.isInteger(n) ? 0 : 2, maximumFractionDigits: 2 });
+  const brl = (n) => n.toLocaleString('pt-BR', { minimumFractionDigits: Number.isInteger(n) ? 0 : 2, maximumFractionDigits: 2 });
   const nomeBanda = (id) => (C.bandas.find((b) => b.id === id) || {}).nome || id;
   const corBanda = (id) => (C.bandas.find((b) => b.id === id) || {}).cor;
   const ct = (pts) => (pts / 100).toFixed(2).replace('.', ',') + ' ct';
+
+  /* ---------- promocao global (data/promo.js) ----------
+     Um fator so, aplicado aqui em cima do catalogo: todo preco que o site mostra, que a
+     sacola guarda e que vai no pedido ja sai com o desconto, e a variacao guarda o valor
+     cheio em `preco_cheio` para aparecer riscado. O servidor faz a MESMA conta
+     (supabase/functions/_shared/promo.ts), para o checkout cobrar o que esta na tela.
+     Desligar: _tools/promocao.json + python -I _tools/montar_promocao.py . */
+  const PROMO = window.CAYA_PROMO && window.CAYA_PROMO.vigente() ? window.CAYA_PROMO : null;
+  if (PROMO) {
+    C.pecas.forEach((p) => p.variacoes.forEach((v) => {
+      const novo = PROMO.preco(v.preco, p.id, v.pts);
+      if (novo < v.preco) { v.preco_cheio = v.preco; v.preco = novo; }
+    }));
+  }
+  /* preco de uma variacao em HTML: na promocao, o cheio riscado antes do novo.
+     `antes` e um rotulo que acompanha o preco que vale ("a partir de "). */
+  const precoHTML = (v, antes) => (v.preco_cheio
+    ? '<s class="de">' + brl(v.preco_cheio) + '</s><b class="por">' + (antes || '') + brl(v.preco) + '</b>'
+    : (antes || '') + brl(v.preco));
+  /* valor da parcela em 10x, sem o R$ */
+  const parcela10 = (preco) => (Math.ceil(preco / 10 * 100) / 100).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  /* preco do cartao: riscado, com desconto e 10x (sem promocao, so o preco de sempre) */
+  const precoCartao = (v) => precoHTML(v) + (v.preco_cheio ? '<small class="dez">10x de ' + parcela10(v.preco) + '</small>' : '');
+  /* desconto real da variacao, arredondado para baixo: o selo nunca promete mais do que da */
+  const pctReal = (v) => (v.preco_cheio ? Math.floor((v.preco_cheio - v.preco) / v.preco_cheio * 100 + 1e-9) : 0);
+  /* peca com desconto acima do geral: o selo vai na foto, para chamar a compra.
+     Se so alguns tamanhos tem o desconto maior, o selo diz "ate". */
+  const descontoMaior = (p) => !!PROMO && !p.consulta && Math.max(...p.variacoes.map(pctReal)) > PROMO.percentual;
+  const seloFoto = (p) => {
+    if (!descontoMaior(p)) return '';
+    const ps = p.variacoes.map(pctReal), m = Math.max(...ps);
+    return '<span class="selo-foto">' + (Math.min(...ps) < m ? 'até ' : '') + m + '% off</span>';
+  };
+  /* variacao mais barata de uma peca (ou de uma lista): o "a partir de" */
+  const maisBarata = (ps) => [].concat(ps).reduce((a, p) => a.concat(p.variacoes), [])
+    .reduce((a, b) => (b.preco < a.preco ? b : a));
 
   function peca(id) { return C.pecas.find((p) => p.id === id); }
 
@@ -97,13 +136,15 @@
   const sacola = {
     itens: () => itens,
     total: () => itens.reduce((s, i) => s + i.preco * i.qtd, 0),
+    /* quanto a promocao tirou do que esta na sacola */
+    economia: () => itens.reduce((s, i) => s + ((i.preco_cheio || i.preco) - i.preco) * i.qtd, 0),
     quantidade: () => itens.reduce((s, i) => s + i.qtd, 0),
     adicionar(p, e) {
       const v = variacao(p, e);
       const chave = p.id + '|' + JSON.stringify(e);
       const ja = itens.find((i) => i.chave === chave);
       if (ja) { ja.qtd += 1; if (aroMedido()) aplicarAroMedido(aroMedido()); }
-      else itens.push({ chave, id: p.id, escolha: Object.assign({}, e), nome: p.nome, detalhe: rotulo(p, e), preco: v.preco, foto: v.fotos[0], qtd: 1,
+      else itens.push({ chave, id: p.id, escolha: Object.assign({}, e), nome: p.nome, detalhe: rotulo(p, e), preco: v.preco, preco_cheio: v.preco_cheio, foto: v.fotos[0], qtd: 1,
                         aros: p.aros || 0, medidas: aroMedido() ? Array(p.aros || 0).fill(aroMedido()) : [] });
       salvar();
     },
@@ -238,7 +279,26 @@
     location.href = url;
   }
 
+  /* sacola guardada no navegador: os precos vem sempre do catalogo de agora. Um item
+     colocado antes da promocao (ou de uma mudanca de tabela) nao pode mostrar um valor
+     diferente do que o servidor cobra no checkout. */
+  (function repreciar() {
+    let mexeu = false;
+    itens.forEach((i) => {
+      const p = peca(i.id);
+      if (!p) return;
+      const e = escolhaDe(i);
+      const v = p.variacoes.find((x) => Object.keys(p.eixos).every((k) => x[k] === e[k]));
+      if (!v) return;
+      if (i.preco !== v.preco || i.preco_cheio !== v.preco_cheio) {
+        i.preco = v.preco; i.preco_cheio = v.preco_cheio; mexeu = true;
+      }
+    });
+    if (mexeu) salvar();
+  })();
+
   window.Caya = { C, brl, ct, nomeBanda, corBanda, peca, variacao, rotulo, aPartirDe,
+                  promo: PROMO, precoHTML, precoCartao, parcela10, pctReal, seloFoto, maisBarata,
                   lerEndereco, gravarEndereco, sacola, linkWhatsApp, pedidoWhatsApp,
                   padraoCom, definirOuro, pagar, pagina, naPagina, contaAtiva, sb, sessao, servidor, previa, pagamentoAtivo, ouroPreferido: () => ouroPref, aoMudarOuro: (f) => ouvintesOuro.push(f) };
 })();
