@@ -8,7 +8,7 @@
 <link rel="icon" href="../assets/marca/favicon.png">
 <meta name="description" content="Monte o seu anel de diamante natural e ouro 18k, ou mande a sua ideia com fotos de referência. A Caya responde e marca uma conversa.">
 <link rel="preload" href="../assets/fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/site.css?v=20261103120154">
+<link rel="stylesheet" href="../assets/site.css?v=20261103131919">
 <style>
 .pz [hidden]{display:none!important}
 .pz-topo{max-width:1240px;margin:0 auto;padding:clamp(36px,5vw,72px) var(--g) 0}
@@ -262,12 +262,12 @@
   <div><b>Ajuda</b><p><a href="../ajuda/?p=aro">Medida do aro</a><br><a href="../ajuda/?p=privacidade">Privacidade</a></p></div>
 </footer>
 
-<script src="../data/catalogo.js?v=20261103120154"></script>
-<script src="../data/promo.js?v=20261103120154"></script>
-<script src="../js/comum.js?v=20261103120154"></script>
-<script src="../js/sacola.js?v=20261103120154"></script>
-<script src="../js/preferencia.js?v=20261103120154"></script>
-<script src="../js/faixa.js?v=20261103120154"></script>
+<script src="../data/catalogo.js?v=20261103131919"></script>
+<script src="../data/promo.js?v=20261103131919"></script>
+<script src="../js/comum.js?v=20261103131919"></script>
+<script src="../js/sacola.js?v=20261103131919"></script>
+<script src="../js/preferencia.js?v=20261103131919"></script>
+<script src="../js/faixa.js?v=20261103131919"></script>
 <script>
 /* opcoes do anel e estado da pagina. A foto final sai destas escolhas (texto); o 3D e so uma previa. */
 window.PZ=(function(){
@@ -307,7 +307,7 @@ const G={
     {v:'sextavado',t:'Sextavado',i:linha('M20 3l9 5v12l-9 5-9-5V8z')},
     {v:'quadrado',t:'Quadrado',i:linha('M12 5h16a1.5 1.5 0 0 1 1.5 1.5v15A1.5 1.5 0 0 1 28 23H12a1.5 1.5 0 0 1-1.5-1.5v-15A1.5 1.5 0 0 1 12 5z')}],
     nota:'Por dentro o aro é sempre redondo; o formato escolhido é o contorno de fora.'},
-  estilo:{t:'Modelo do aro',o:op([['classico','Clássico arredondado'],['meia-cana','Meia-cana'],['plano','Plano'],['faca','Fio de faca'],['afilado','Afilado'],['alargado','Alargado perto da pedra','estilo Tiffany'],['split','Dividido','split shank'],['catedral','Catedral'],['torcido','Torcido'],['trancado','Trançado'],['bypass','Bypass'],['ondulado','Ondulado'],['largo','Largo contemporâneo']]),
+  estilo:{t:'Modelo do aro',o:op([['classico','Clássico arredondado'],['meia-cana','Meia-cana'],['plano','Plano'],['faca','Fio de faca'],['afilado','Afilado'],['alargado','Alargado perto da pedra'],['split','Dividido','split shank'],['catedral','Catedral'],['torcido','Torcido'],['trancado','Trançado'],['bypass','Bypass'],['ondulado','Ondulado'],['largo','Largo contemporâneo']]),
        nao:(v,c)=>c.contorno!=='redondo'&&ESTILO_SO_REDONDO.includes(v)},
   largura:{t:'Largura do aro',o:['1.6','1.8','2.0','2.2','2.5','3.0','3.5'].map(v=>({v,t:v.replace('.',',')+' mm'}))},
   espessura:{t:'Espessura do aro',o:op([['fina','Fina'],['media','Média'],['robusta','Robusta']])},
@@ -387,7 +387,7 @@ function resumo(){
 /* o que a previa 3D sabe desenhar */
 function cfg3d(){
   const ponta={'unha-gato':'pontuda','unha-aguia':'pontuda',pontiaguda:'pontuda','em-v':'pontuda',quadrada:'achatada',achatada:'achatada'}[cfg.ponta]||'redonda';
-  return {foco:ultimoFoco, aro:cfg.contorno==='redondo'&&cfg.estilo==='alargado'?'tiffany':cfg.contorno, estilo:cfg.estilo, pontaTipo:cfg.ponta,
+  return {foco:ultimoFoco, aro:cfg.contorno==='redondo'&&cfg.estilo==='alargado'?'ombros':cfg.contorno, estilo:cfg.estilo, pontaTipo:cfg.ponta,
     coroa:cfg.coroa, galeria:cfg.galeria, acabamento:cfg.acabamento, detalhes:[...cfg.detalhes], fileiras:+cfg.paveFileiras,
     n:+cfg.garras||6, duplas:cfg.garras==='duplas', bezel:BEZEL(cfg), diagonal:cfg.posicao==='diagonal', ponta,
     gS:{fina:0.8,media:1,robusta:1.25}[cfg.espessuraGarra],
@@ -421,7 +421,7 @@ return {cfg, OPC, G, resumo, rotulo, aoMudar:f=>{ouvintes.push(f); f(cfg3d());}}
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script>
 <script type="module">
 /* Anel em 3D, no estilo das pecas Caya. Medidas em milimetros.
-   - O aro e um perfil (secao) varrido ao longo do CONTORNO FRONTAL escolhido: circulo, circulo com ombros (Tiffany),
+   - O aro e um perfil (secao) varrido ao longo do CONTORNO FRONTAL escolhido: circulo, circulo com ombros,
      laterais retas com base redonda, sextavado ou quadrado. O contorno de dentro e o dedo (aro 14).
    - A cabeca: assento em taca de onde saem garras finas que afinam ate a ponta; coroa opcional sob a pedra;
      halo com moldura fina; pave rente ao aro com bolinhas de metal. O anel fica em pe, com sombra suave. */
@@ -491,15 +491,15 @@ function raioFora(tipo,th,base){
     return Math.abs(r1*s)<=k? r1 : k*Math.abs(s)+Math.sqrt(base*base-k*k*c*c); }
   return base;
 }
-/* secao do fio: superelipse (bordas suaves); arredondada no redondo/Tiffany, mais reta nos facetados */
+/* secao do fio: superelipse (bordas suaves); arredondada no redondo/ombros, mais reta nos facetados */
 function secao(tipo,M=32){
-  const n=(tipo==='redondo'||tipo==='tiffany')?2.6:5.5, s=[];
+  const n=(tipo==='redondo'||tipo==='ombros')?2.6:5.5, s=[];
   for(let j=0;j<M;j++){ const a=j/M*Math.PI*2, c=Math.cos(a), sn=Math.sin(a);
     s.push([0.5+0.5*Math.sign(c)*Math.abs(c)**(2/n), 0.5*Math.sign(sn)*Math.abs(sn)**(2/n)]); }  // u: 0 = dedo, 1 = fora; v: largura
   return s;
 }
 function aro(cfg){
-  const tipo=cfg.aro, redondo=tipo==='redondo'||tipo==='tiffany', comPave=cfg.pave, est=cfg.estilo||'classico';
+  const tipo=cfg.aro, redondo=tipo==='redondo'||tipo==='ombros', comPave=cfg.pave, est=cfg.estilo||'classico';
   const wS=(cfg.wS||1)*(est==='largo'?1.5:1), tS=cfg.tS||1;
   // anatomico: mais fino embaixo (conforto entre os dedos), mais encorpado em cima (sustenta a pedra)
   const fino=tipo==='quadrado'||tipo==='abaulado';   // formatos que ja engrossam nos cantos
@@ -509,7 +509,7 @@ function aro(cfg){
     const th=Math.PI/2+i/N*Math.PI*2, cima=((1+Math.sin(th))/2);
     const l=Math.exp(-(((modulo(th-Math.PI/2+Math.PI,2*Math.PI)-Math.PI)/0.8)**2));      // perto da pedra
     let t=(tBaixo+(tCima-tBaixo)*cima**1.5)*tS, w=(wBaixo+(wCima-wBaixo)*cima**2)*wS;
-    if(tipo==='tiffany'){ t+=1.05*l*l; w*=1+0.6*l**1.5; }                                   // ombros que sobem ate a pedra
+    if(tipo==='ombros'){ t+=1.05*l*l; w*=1+0.6*l**1.5; }                                   // ombros que sobem ate a pedra
     if(est==='afilado') w*=1-0.4*l;                                                           // afina ate a pedra
     ths.push(th); T.push(t); W.push(w); L.push(l);
     R.push(redondo? RI+t : raioFora(tipo,th,RI+t));
