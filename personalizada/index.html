@@ -8,7 +8,7 @@
 <link rel="icon" href="../assets/marca/favicon.png">
 <meta name="description" content="Monte o seu anel de diamante natural e ouro 18k, ou mande a sua ideia com fotos de referência. A Caya responde e marca uma conversa.">
 <link rel="preload" href="../assets/fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/site.css?v=20261103115428">
+<link rel="stylesheet" href="../assets/site.css?v=20261103120154">
 <style>
 .pz [hidden]{display:none!important}
 .pz-topo{max-width:1240px;margin:0 auto;padding:clamp(36px,5vw,72px) var(--g) 0}
@@ -262,12 +262,12 @@
   <div><b>Ajuda</b><p><a href="../ajuda/?p=aro">Medida do aro</a><br><a href="../ajuda/?p=privacidade">Privacidade</a></p></div>
 </footer>
 
-<script src="../data/catalogo.js?v=20261103115428"></script>
-<script src="../data/promo.js?v=20261103115428"></script>
-<script src="../js/comum.js?v=20261103115428"></script>
-<script src="../js/sacola.js?v=20261103115428"></script>
-<script src="../js/preferencia.js?v=20261103115428"></script>
-<script src="../js/faixa.js?v=20261103115428"></script>
+<script src="../data/catalogo.js?v=20261103120154"></script>
+<script src="../data/promo.js?v=20261103120154"></script>
+<script src="../js/comum.js?v=20261103120154"></script>
+<script src="../js/sacola.js?v=20261103120154"></script>
+<script src="../js/preferencia.js?v=20261103120154"></script>
+<script src="../js/faixa.js?v=20261103120154"></script>
 <script>
 /* opcoes do anel e estado da pagina. A foto final sai destas escolhas (texto); o 3D e so uma previa. */
 window.PZ=(function(){
@@ -471,7 +471,7 @@ const estudioPedra=(()=>{ const c=new THREE.Scene(); c.background=new THREE.Colo
   return pmrem.fromScene(c,0).texture; })();
 const DIAMANTE=new THREE.MeshPhysicalMaterial({color:0xf6f8fc,metalness:.55,roughness:.03,envMap:estudioPedra,envMapIntensity:1.6,flatShading:true,clearcoat:1,clearcoatRoughness:0,
   iridescence:.35,iridescenceIOR:1.9});
-const MELEE=new THREE.MeshPhysicalMaterial({color:0xffffff,metalness:1,roughness:0,envMap:estudioPedra,envMapIntensity:1.3,flatShading:true});
+const MELEE=new THREE.MeshPhysicalMaterial({color:0xffffff,metalness:1,roughness:0,envMap:estudioPedra,envMapIntensity:1.85,flatShading:true});
 
 /* lapidacao brilhante: coroa (mesa, estrelas, bezels) e pavilhao em aneis de 16 faces */
 function brilhante(d,lados=16){
@@ -675,7 +675,8 @@ function construir(cfg){
   const fileiraHalo=(R,y)=>{ const q=Math.floor(2*Math.PI*R/(dm*1.12)); for(let i=0;i<q;i++){ const a=i/q*Math.PI*2; melee.push(new THREE.Matrix4().makeTranslation(Math.cos(a)*R,y,Math.sin(a)*R)); } };
   if(haloV){
     const R=r+0.32+dm/2, dupla=cfg.halo==='duplo', R2=R+dm*1.06;
-    const moldura=new THREE.TorusGeometry(dupla?(R+R2)/2:R,dupla?0.95:0.36,12,96); moldura.scale(1,dupla?0.4:1,1); moldura.rotateX(Math.PI/2); moldura.translate(0,G-0.32,0); partes.push(moldura);
+    /* moldura: disco baixo sob as fileiras. Achata a altura do tubo (z antes de deitar), nunca o raio, senao o anel vira elipse e corta a pedra */
+    const moldura=new THREE.TorusGeometry(dupla?(R+R2)/2:R,dupla?(R2-R+dm)/2+0.1:0.36,12,96); moldura.scale(1,1,dupla?0.2:1); moldura.rotateX(Math.PI/2); moldura.translate(0,dupla?G-0.42:G-0.32,0); partes.push(moldura);
     fileiraHalo(R,G-0.02); if(dupla) fileiraHalo(R2,G-0.06);
   }
   if(oculto){
