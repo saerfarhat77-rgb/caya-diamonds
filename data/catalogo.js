@@ -857,7 +857,7 @@ window.CAYA = {
     {
      "preco": 148250,
      "fotos": [
-      "assets/img/espiral-300.webp"
+      "assets/img/espiral-300-v2.webp"
      ]
     }
    ],
@@ -888,7 +888,7 @@ window.CAYA = {
     {
      "preco": 400310,
      "fotos": [
-      "assets/img/cushion-halo-425.webp"
+      "assets/img/cushion-halo-425-v2.webp"
      ]
     }
    ],
@@ -946,7 +946,7 @@ window.CAYA = {
     {
      "preco": 138980,
      "fotos": [
-      "assets/img/redondo-374.webp"
+      "assets/img/redondo-374-v2.webp"
      ]
     }
    ],
