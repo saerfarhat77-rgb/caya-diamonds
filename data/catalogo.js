@@ -809,13 +809,13 @@ window.CAYA = {
    "nome": "Fancy Light Yellow Radiant Cut 5,01 ct",
    "tipo": "Anel",
    "atendimento": true,
-   "resumo": "Diamante retangular Fancy Light Yellow de 5,01 ct com dois diamantes laterais de 0,71 ct no total, cor G, pureza VVS.",
-   "texto": "Diamante retangular Fancy Light Yellow de 5,01 ct com dois diamantes laterais de 0,71 ct no total, cor G, pureza VVS. Para as datas que uma vida inteira guarda.",
+   "resumo": "Diamante retangular Fancy Light Yellow de 5,01 ct com dois diamantes laterais de 0,71 ct no total, cor G, pureza VVS, todos com certificado GIA.",
+   "texto": "Diamante retangular Fancy Light Yellow de 5,01 ct com dois diamantes laterais de 0,71 ct no total, cor G, pureza VVS, todos com certificado GIA. Para as datas que uma vida inteira guarda.",
    "ficha": [
     "Diamante central de 5,01 ct",
     "Lapidação Radiant",
     "Cor Fancy Light Yellow",
-    "Dois diamantes laterais, 0,71 ct no total, cor G, pureza VVS",
+    "Dois diamantes laterais, 0,71 ct no total, cor G, pureza VVS, com certificado GIA",
     "Ouro branco 750 com garras em ouro amarelo 750",
     "Certificado GIA",
     "Garantia Caya Diamonds"
@@ -906,7 +906,7 @@ window.CAYA = {
     "Diamante central de 1,81 ct",
     "Lapidação Oval",
     "Cor Fancy Light Yellow",
-    "Dois trillions laterais, 0,61 ct no total",
+    "Dois trillions laterais, 0,61 ct no total, com certificado GIA",
     "Ouro branco 750 com garras em ouro amarelo 750",
     "Certificado GIA",
     "Garantia Caya Diamonds"
@@ -963,7 +963,7 @@ window.CAYA = {
     "Diamante central de 3,02 ct",
     "Lapidação Radiant",
     "Cor Fancy Light Yellow",
-    "Dois diamantes laterais, 0,61 ct no total, cor D",
+    "Dois diamantes laterais, 0,61 ct no total, cor D, com certificado GIA",
     "Ouro branco 750 com garras em ouro amarelo 750",
     "Certificado GIA",
     "Garantia Caya Diamonds"
