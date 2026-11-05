@@ -826,7 +826,7 @@ window.CAYA = {
     {
      "preco": 247690,
      "fotos": [
-      "assets/img/amarelo-retangular-399-v2.webp"
+      "assets/img/amarelo-retangular-399-v3.webp"
      ],
      "gia": true
     }
@@ -857,7 +857,7 @@ window.CAYA = {
     {
      "preco": 148250,
      "fotos": [
-      "assets/img/espiral-300-v2.webp"
+      "assets/img/espiral-300-v3.webp"
      ]
     }
    ],
@@ -888,7 +888,7 @@ window.CAYA = {
     {
      "preco": 400310,
      "fotos": [
-      "assets/img/cushion-halo-425-v2.webp"
+      "assets/img/cushion-halo-425-v3.webp"
      ]
     }
    ],
@@ -917,7 +917,7 @@ window.CAYA = {
     {
      "preco": 54230,
      "fotos": [
-      "assets/img/amarelo-oval-410-v5.webp"
+      "assets/img/amarelo-oval-410-v6.webp"
      ],
      "gia": true
     }
@@ -946,7 +946,7 @@ window.CAYA = {
     {
      "preco": 138980,
      "fotos": [
-      "assets/img/redondo-374-v2.webp"
+      "assets/img/redondo-374-v3.webp"
      ]
     }
    ],
@@ -975,7 +975,7 @@ window.CAYA = {
     {
      "preco": 142570,
      "fotos": [
-      "assets/img/amarelo-retangular-360-v4.webp"
+      "assets/img/amarelo-retangular-360-v5.webp"
      ],
      "gia": true
     }
@@ -1006,7 +1006,7 @@ window.CAYA = {
     {
      "preco": 117800,
      "fotos": [
-      "assets/img/amarelo-pera-425-v4.webp"
+      "assets/img/amarelo-pera-425-v5.webp"
      ],
      "gia": true
     }
