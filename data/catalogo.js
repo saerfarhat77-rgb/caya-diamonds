@@ -917,7 +917,7 @@ window.CAYA = {
     {
      "preco": 54230,
      "fotos": [
-      "assets/img/amarelo-oval-410-v2.webp"
+      "assets/img/amarelo-oval-410-v3.webp"
      ],
      "gia": true
     }
@@ -975,7 +975,7 @@ window.CAYA = {
     {
      "preco": 142570,
      "fotos": [
-      "assets/img/amarelo-retangular-360-v2.webp"
+      "assets/img/amarelo-retangular-360-v3.webp"
      ],
      "gia": true
     }
@@ -1006,7 +1006,7 @@ window.CAYA = {
     {
      "preco": 117800,
      "fotos": [
-      "assets/img/amarelo-pera-425-v2.webp"
+      "assets/img/amarelo-pera-425-v3.webp"
      ],
      "gia": true
     }
