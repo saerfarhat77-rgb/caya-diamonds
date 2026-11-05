@@ -11,7 +11,14 @@ window.CAYA_PROMO = (function () {
     "colors-collection|pts=10": 1900,
     "colors-collection|pts=30": 4030,
     "colors-collection|pts=40": 4790,
-    "colors-collection|pts=50": 6090
+    "colors-collection|pts=50": 6090,
+    "noivado-amarelo-retangular-399": 210536,
+    "noivado-espiral-300": 126011,
+    "noivado-cushion-halo-425": 57324,
+    "noivado-amarelo-oval-410": 118133,
+    "noivado-redondo-374": 46090,
+    "noivado-amarelo-retangular-360": 121183,
+    "noivado-amarelo-pera-425": 100130
   },
   "inicio": "2026-11-01T00:00:00-03:00",
   "fim": "2026-11-30T23:59:59-03:00",

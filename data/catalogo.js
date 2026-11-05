@@ -43,19 +43,25 @@ window.CAYA = {
    "linha": "Diamantes naturais em ouro 18k: solitário, pingente, meia aliança e brincos."
   },
   {
-   "id": "candy-cut",
-   "nome": "Candy Cut",
-   "linha": "Diamante e esmeralda natural na mesma peça, em design autoral."
-  },
-  {
-   "id": "mosaico",
-   "nome": "Mosaico",
-   "linha": "Feito sob medida com as esmeraldas que você escolhe."
-  },
-  {
    "id": "classicos",
    "nome": "Clássicos",
    "linha": "O solitário de seis garras em ouro 18k, de 0,20 a 1 quilate."
+  },
+  {
+   "id": "noivado",
+   "nome": "Anéis de Noivado",
+   "menu": "Noivado",
+   "linha": "Para as datas que uma vida inteira guarda: o pedido, as bodas, cada aniversário de união. Diamantes de 3 a 4,25 quilates, com certificado GIA.",
+   "dados": [
+    [
+     "Pedra",
+     "3 a 4,25 ct"
+    ],
+    [
+     "Certificado",
+     "GIA"
+    ]
+   ]
   }
  ],
  "pecas": [
@@ -694,135 +700,6 @@ window.CAYA = {
    "aros": 0
   },
   {
-   "id": "candy-cut",
-   "colecao": "candy-cut",
-   "nome": "Candy Cut 3",
-   "tipo": "Anel",
-   "resumo": "Diamante e esmeralda natural na mesma peça.",
-   "texto": "O verde da esmeralda ao lado da luz branca do diamante, em design autoral com acabamento artesanal.",
-   "ficha": [
-    "Diamante e esmeralda natural na mesma peça",
-    "Design autoral Caya Diamonds",
-    "Acabamento artesanal",
-    "Garantia Caya Diamonds"
-   ],
-   "eixos": {
-    "ouro": [
-     "branco",
-     "amarelo"
-    ]
-   },
-   "padrao": {
-    "ouro": "branco"
-   },
-   "variacoes": [
-    {
-     "ouro": "branco",
-     "preco": 3000,
-     "fotos": [
-      "assets/img/candy-cut-branco-1.webp",
-      "assets/img/candy-cut-branco-2.webp"
-     ],
-     "foto_ouro": "amarelo"
-    },
-    {
-     "ouro": "amarelo",
-     "preco": 3000,
-     "fotos": [
-      "assets/img/candy-cut-amarelo-1.webp",
-      "assets/img/candy-cut-amarelo-2.webp"
-     ]
-    }
-   ],
-   "aros": 1
-  },
-  {
-   "id": "candy-cut-par",
-   "colecao": "candy-cut",
-   "nome": "Par Candy Cut",
-   "tipo": "Par de anéis",
-   "resumo": "Dois anéis com diamante e esmeralda natural, pensados como conjunto.",
-   "texto": "Duas peças pensadas como conjunto, cada uma reunindo diamante e esmeralda natural. Design autoral, acabamento artesanal.",
-   "ficha": [
-    "Par de duas peças",
-    "Diamante e esmeralda natural em cada peça",
-    "Design autoral Caya Diamonds",
-    "Acabamento artesanal",
-    "Garantia Caya Diamonds"
-   ],
-   "eixos": {
-    "ouro": [
-     "branco",
-     "amarelo"
-    ]
-   },
-   "padrao": {
-    "ouro": "branco"
-   },
-   "variacoes": [
-    {
-     "ouro": "branco",
-     "preco": 5000,
-     "fotos": [
-      "assets/img/candy-cut-par-branco-1.webp"
-     ],
-     "foto_ouro": "amarelo"
-    },
-    {
-     "ouro": "amarelo",
-     "preco": 5000,
-     "fotos": [
-      "assets/img/candy-cut-par-amarelo-1.webp"
-     ]
-    }
-   ],
-   "aros": 2
-  },
-  {
-   "id": "mosaico",
-   "colecao": "mosaico",
-   "nome": "Mosaico",
-   "tipo": "Anel sob medida",
-   "resumo": "Duas esmeraldas escolhidas por você e um diamante central de 18 pontos.",
-   "texto": "Joia exclusiva feita sob medida, personalizada com duas esmeraldas escolhidas pelo cliente e um diamante central de 18 pontos, em um design anatômico e futurista.",
-   "ficha": [
-    "Diamante central de 18 pontos",
-    "Duas esmeraldas escolhidas pelo cliente",
-    "Feito sob medida",
-    "Garantia Caya Diamonds"
-   ],
-   "eixos": {
-    "ouro": [
-     "branco",
-     "amarelo"
-    ]
-   },
-   "padrao": {
-    "ouro": "branco"
-   },
-   "variacoes": [
-    {
-     "ouro": "branco",
-     "preco": 9999,
-     "fotos": [
-      "assets/img/mosaico-branco-1.webp",
-      "assets/img/mosaico-branco-2.webp"
-     ]
-    },
-    {
-     "ouro": "amarelo",
-     "preco": 9999,
-     "fotos": [
-      "assets/img/mosaico-amarelo-1.webp",
-      "assets/img/mosaico-amarelo-2.webp"
-     ],
-     "foto_ouro": "branco"
-    }
-   ],
-   "consulta": true,
-   "aros": 1
-  },
-  {
    "id": "solitario-ay01",
    "colecao": "classicos",
    "nome": "Solitário AY 01",
@@ -922,6 +799,224 @@ window.CAYA = {
       "assets/img/ay01g-100pt-amarelo.webp"
      ],
      "gia": true
+    }
+   ],
+   "aros": 1
+  },
+  {
+   "id": "noivado-amarelo-retangular-399",
+   "colecao": "noivado",
+   "nome": "Amarelo Retangular 3,99 ct",
+   "tipo": "Anel",
+   "atendimento": true,
+   "resumo": "Diamante retangular amarelo Fancy Light Yellow de 3,99 ct, pureza VS2, com pedras laterais em ouro branco 750.",
+   "texto": "Diamante retangular amarelo Fancy Light Yellow de 3,99 ct, pureza VS2, com pedras laterais em ouro branco 750. Para as datas que uma vida inteira guarda.",
+   "ficha": [
+    "Diamante central de 3,99 ct",
+    "Lapidação retangular",
+    "Cor Fancy Light Yellow",
+    "Pureza VS2",
+    "Pedras laterais",
+    "Ouro branco 750",
+    "Certificado GIA",
+    "Garantia Caya Diamonds"
+   ],
+   "eixos": {},
+   "padrao": {},
+   "variacoes": [
+    {
+     "preco": 247690,
+     "gia": true,
+     "fotos": [
+      "assets/img/amarelo-retangular-399.webp"
+     ]
+    }
+   ],
+   "aros": 1
+  },
+  {
+   "id": "noivado-espiral-300",
+   "colecao": "noivado",
+   "nome": "Espiral 3,00 ct",
+   "tipo": "Anel",
+   "atendimento": true,
+   "resumo": "Diamante redondo de 3,00 ct, cor I, pureza VS2, em aro espiral cravejado com 0,25 ct em diamantes.",
+   "texto": "Diamante redondo de 3,00 ct, cor I, pureza VS2, em aro espiral cravejado com 0,25 ct em diamantes. Para as datas que uma vida inteira guarda.",
+   "ficha": [
+    "Diamante central de 3,00 ct",
+    "Lapidação redonda",
+    "Cor I",
+    "Pureza VS2",
+    "Aro espiral cravejado com 0,25 ct em diamantes",
+    "Ouro branco 750",
+    "Certificado GIA",
+    "Garantia Caya Diamonds"
+   ],
+   "eixos": {},
+   "padrao": {},
+   "variacoes": [
+    {
+     "preco": 148250,
+     "gia": true,
+     "fotos": [
+      "assets/img/espiral-300.webp"
+     ]
+    }
+   ],
+   "aros": 1
+  },
+  {
+   "id": "noivado-cushion-halo-425",
+   "colecao": "noivado",
+   "nome": "Cushion Halo 4,25 ct",
+   "tipo": "Anel",
+   "atendimento": true,
+   "resumo": "Diamante cushion de 4,25 ct, cor D, pureza SI2, com halo de diamantes brancos e aro cravejado.",
+   "texto": "Diamante cushion de 4,25 ct, cor D, pureza SI2, com halo de diamantes brancos e aro cravejado. Para as datas que uma vida inteira guarda.",
+   "ficha": [
+    "Diamante central de 4,25 ct",
+    "Lapidação cushion",
+    "Cor D",
+    "Pureza SI2",
+    "Halo de diamantes brancos",
+    "Aro cravejado",
+    "Ouro branco 750",
+    "Certificado GIA",
+    "Garantia Caya Diamonds"
+   ],
+   "eixos": {},
+   "padrao": {},
+   "variacoes": [
+    {
+     "preco": 67440,
+     "gia": true,
+     "fotos": [
+      "assets/img/cushion-halo-425.webp"
+     ]
+    }
+   ],
+   "aros": 1
+  },
+  {
+   "id": "noivado-amarelo-oval-410",
+   "colecao": "noivado",
+   "nome": "Amarelo Oval 4,10 ct",
+   "tipo": "Anel",
+   "atendimento": true,
+   "resumo": "Diamante oval amarelo Fancy Light Yellow de 4,10 ct, pureza VS2, com duas pedras laterais de 0,57 ct no total.",
+   "texto": "Diamante oval amarelo Fancy Light Yellow de 4,10 ct, pureza VS2, com duas pedras laterais de 0,57 ct no total. Para as datas que uma vida inteira guarda.",
+   "ficha": [
+    "Diamante central de 4,10 ct",
+    "Lapidação oval",
+    "Cor Fancy Light Yellow",
+    "Pureza VS2",
+    "Duas pedras laterais, 0,57 ct no total",
+    "Ouro branco 750",
+    "Certificado GIA",
+    "Garantia Caya Diamonds"
+   ],
+   "eixos": {},
+   "padrao": {},
+   "variacoes": [
+    {
+     "preco": 138980,
+     "gia": true,
+     "fotos": [
+      "assets/img/amarelo-oval-410.webp"
+     ]
+    }
+   ],
+   "aros": 1
+  },
+  {
+   "id": "noivado-redondo-374",
+   "colecao": "noivado",
+   "nome": "Redondo 3,74 ct",
+   "tipo": "Anel",
+   "atendimento": true,
+   "resumo": "Diamante redondo de 3,74 ct, cor H, pureza VS2, com pedras laterais em aro de ouro branco 750.",
+   "texto": "Diamante redondo de 3,74 ct, cor H, pureza VS2, com pedras laterais em aro de ouro branco 750. Para as datas que uma vida inteira guarda.",
+   "ficha": [
+    "Diamante central de 3,74 ct",
+    "Lapidação redonda",
+    "Cor H",
+    "Pureza VS2",
+    "Pedras laterais",
+    "Ouro branco 750",
+    "Certificado GIA",
+    "Garantia Caya Diamonds"
+   ],
+   "eixos": {},
+   "padrao": {},
+   "variacoes": [
+    {
+     "preco": 54230,
+     "gia": true,
+     "fotos": [
+      "assets/img/redondo-374.webp"
+     ]
+    }
+   ],
+   "aros": 1
+  },
+  {
+   "id": "noivado-amarelo-retangular-360",
+   "colecao": "noivado",
+   "nome": "Amarelo Retangular 3,60 ct",
+   "tipo": "Anel",
+   "atendimento": true,
+   "resumo": "Diamante retangular amarelo Fancy Light Yellow de 3,60 ct, pureza VS2, com dois diamantes trapezoidais laterais de 0,71 ct no total.",
+   "texto": "Diamante retangular amarelo Fancy Light Yellow de 3,60 ct, pureza VS2, com dois diamantes trapezoidais laterais de 0,71 ct no total. Para as datas que uma vida inteira guarda.",
+   "ficha": [
+    "Diamante central de 3,60 ct",
+    "Lapidação retangular",
+    "Cor Fancy Light Yellow",
+    "Pureza VS2",
+    "Dois diamantes trapezoidais laterais, 0,71 ct no total",
+    "Ouro branco 750",
+    "Certificado GIA",
+    "Garantia Caya Diamonds"
+   ],
+   "eixos": {},
+   "padrao": {},
+   "variacoes": [
+    {
+     "preco": 142570,
+     "gia": true,
+     "fotos": [
+      "assets/img/amarelo-retangular-360.webp"
+     ]
+    }
+   ],
+   "aros": 1
+  },
+  {
+   "id": "noivado-amarelo-pera-425",
+   "colecao": "noivado",
+   "nome": "Amarelo Pera 4,25 ct",
+   "tipo": "Anel",
+   "atendimento": true,
+   "resumo": "Diamante pera amarelo Fancy Light Yellow de 4,25 ct, pureza VS1, com duas pedras laterais de 0,60 ct no total.",
+   "texto": "Diamante pera amarelo Fancy Light Yellow de 4,25 ct, pureza VS1, com duas pedras laterais de 0,60 ct no total. Para as datas que uma vida inteira guarda.",
+   "ficha": [
+    "Diamante central de 4,25 ct",
+    "Lapidação pera",
+    "Cor Fancy Light Yellow",
+    "Pureza VS1",
+    "Duas pedras laterais, 0,60 ct no total",
+    "Ouro branco 750",
+    "Certificado GIA",
+    "Garantia Caya Diamonds"
+   ],
+   "eixos": {},
+   "padrao": {},
+   "variacoes": [
+    {
+     "preco": 117800,
+     "gia": true,
+     "fotos": [
+      "assets/img/amarelo-pera-425.webp"
+     ]
     }
    ],
    "aros": 1
@@ -1048,18 +1143,6 @@ window.CAYA = {
   "caya-halo-half-10-pts": [
    "halo-half",
    "pts=10"
-  ],
-  "caya-candy-cut-3": [
-   "candy-cut",
-   ""
-  ],
-  "par-caya-candy-cut": [
-   "candy-cut-par",
-   ""
-  ],
-  "caya-mosaico": [
-   "mosaico",
-   ""
   ],
   "anel-diamante-solitario-tiffany-0-30ct-3lxzr": [
    "solitario-ay01",

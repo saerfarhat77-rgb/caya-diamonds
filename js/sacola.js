@@ -97,7 +97,9 @@
       const L = [];
       if (d.desconto) L.push(`<div><span>Primeira compra · 15%</span><span class="mono">− ${brl(d.desconto / 100)}</span></div>`);
       if (d.saldo) L.push(`<label class="usar-cb"><input type="checkbox" id="usar-cb"${usarCashback ? ' checked' : ''}><span>Usar cashback <small>${brl(d.saldo / 100)} disponível</small></span><span class="mono">${d.cashback ? '− ' + brl(d.cashback / 100) : ''}</span></label>`);
-      L.push(`<p class="ganha">Você ganha ${brl(Math.round(d.total * 0.15) / 100)} de cashback nesta compra.</p>`);
+      /* teto de 8.000 por compra: o limite so aparece aqui na sacola, quando se aplica */
+      const ganho = Math.round(d.total * 0.15), teto = 800000;
+      L.push(`<p class="ganha">Você ganha ${brl(Math.min(ganho, teto) / 100)} de cashback nesta compra.${ganho > teto ? ` 15% limitado a ${brl(teto / 100)} por compra.` : ''}</p>`);
       bx.hidden = false; bx.innerHTML = L.join('');
       const cb = $('#usar-cb'); if (cb) cb.onchange = () => { usarCashback = cb.checked; atualizarBeneficios(); };
       mostrarTotal(d.total / 100);

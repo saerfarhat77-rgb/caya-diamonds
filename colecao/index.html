@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Caya Diamonds</title>
 <link rel="icon" href="../assets/marca/favicon.png">
-<meta name="description" content="Diamante natural e ouro 18k. Caya Colors, Halo, Candy Cut, Mosaico e Clássicos.">
+<meta name="description" content="Diamante natural e ouro 18k. Caya Colors, Halo, Clássicos e Anéis de Noivado.">
 <link rel="preload" href="../assets/fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/site.css?v=20261103131919">
+<link rel="stylesheet" href="../assets/site.css?v=20261105004734">
 <link rel="preload" as="image" href="../assets/hero/rosa.webp">
 <style>
 /* ---------- hero: um diamante, seis cores (so nesta copia) ---------- */
@@ -107,12 +107,12 @@
   <div><b>Ajuda</b><p><a href="../ajuda/?p=trocas">Trocas e devoluções</a><br><a href="../ajuda/?p=garantia">Garantia</a><br><a href="../ajuda/?p=entrega">Prazos e entrega</a><br><a href="../ajuda/?p=aro">Medida do aro</a></p></div>
 </footer>
 
-<script src="../data/catalogo.js?v=20261103131919"></script>
-<script src="../data/promo.js?v=20261103131919"></script>
-<script src="../js/comum.js?v=20261103131919"></script>
-<script src="../js/sacola.js?v=20261103131919"></script>
-<script src="../js/preferencia.js?v=20261103131919"></script>
-<script src="../js/faixa.js?v=20261103131919"></script>
+<script src="../data/catalogo.js?v=20261105004734"></script>
+<script src="../data/promo.js?v=20261105004734"></script>
+<script src="../js/comum.js?v=20261105004734"></script>
+<script src="../js/sacola.js?v=20261105004734"></script>
+<script src="../js/preferencia.js?v=20261105004734"></script>
+<script src="../js/faixa.js?v=20261105004734"></script>
 <script>
 (function(){
 const {C,brl,ct,nomeBanda,corBanda,variacao,rotulo,aPartirDe,lerEndereco,gravarEndereco,sacola,linkWhatsApp,pedidoWhatsApp}=Caya;
@@ -125,7 +125,7 @@ const sel=lerEndereco();
 const LINHA=(new URLSearchParams(location.search).get('linha'))||'caya-colors';
 const COL=C.colecoes.find(c=>c.id===LINHA)||C.colecoes[0];
 document.title=COL.nome+' | Caya Diamonds';
-C.colecoes.forEach(c=>$('#indice').append(el('a',Object.assign({href:'index.html?linha='+c.id},c.id===COL.id?{'aria-current':'page'}:{}),c.nome)));
+C.colecoes.forEach(c=>$('#indice').append(el('a',Object.assign({href:'index.html?linha='+c.id},c.id===COL.id?{'aria-current':'page'}:{}),c.menu||c.nome)));
 if(COL.id!=='caya-colors') document.getElementById('hero').remove();
 
 function linkPeca(p,e){const q=new URLSearchParams({peca:p.id});for(const k of Object.keys(p.eixos))q.set(k,e[k]);return '../peca/?'+q}
@@ -242,7 +242,7 @@ const EDITORIAL={
 [COL].forEach(c=>{
   const ps=C.pecas.filter(p=>p.colecao===c.id);
   const faixa=[...new Set(ps.flatMap(p=>p.eixos.pts||[]))].sort((x,y)=>x-y);
-  const dados=[
+  const dados=c.dados?c.dados.concat([['A partir de','<span class="preco-promo">'+Caya.precoHTML(Caya.maisBarata(ps))+'</span>']]):[
     ['Pedra',c.id==='candy-cut'||c.id==='mosaico'?'diamante + esmeralda':'diamante natural'],
     ['Ouro',c.id==='caya-colors'?'18k':'18k branco ou amarelo'],
     faixa.length>1?['Pontos',faixa[0]+' a '+faixa[faixa.length-1]]:null,

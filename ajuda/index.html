@@ -8,7 +8,7 @@
 <link rel="icon" href="../assets/marca/favicon.png">
 <meta name="description" content="Trocas, devoluções, garantia, prazos de entrega, guia de medida do aro e cuidados com a joia Caya.">
 <link rel="preload" href="../assets/fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/site.css?v=20261103131919">
+<link rel="stylesheet" href="../assets/site.css?v=20261105004734">
 <style>
 .ajuda{max-width:1240px;margin:0 auto;padding:clamp(40px,6vw,88px) var(--g) var(--respiro);display:grid;
   grid-template-columns:minmax(0,240px) minmax(0,680px);gap:clamp(40px,7vw,120px)}
@@ -89,7 +89,7 @@
         <li>a joia deve estar sem sinais de uso, na embalagem completa e com a nota fiscal;</li>
         <li>nessa modalidade não há devolução de valores, total ou parcial.</li>
       </ul>
-      <p>Joias feitas sob encomenda, como o Mosaico, e joias que passaram por ajuste, gravação ou outra modificação não entram na troca por gosto. Defeitos de fabricação seguem sempre a garantia abaixo.</p>
+      <p>Joias feitas sob encomenda e joias que passaram por ajuste, gravação ou outra modificação não entram na troca por gosto. Defeitos de fabricação seguem sempre a garantia abaixo.</p>
 
       <div class="destaque"><p>Uma joia devolvida sem aviso prévio, fora do prazo ou sem os itens e a nota fiscal que a acompanham será reenviada ao cliente, com o frete por conta do cliente.</p></div>
     </section>
@@ -169,16 +169,16 @@
   <div><b>Ajuda</b><p><a href="index.html?p=trocas">Trocas e devoluções</a><br><a href="index.html?p=garantia">Garantia</a><br><a href="index.html?p=entrega">Prazos e entrega</a><br><a href="index.html?p=aro">Medida do aro</a></p></div>
 </footer>
 
-<script src="../data/catalogo.js?v=20261103131919"></script>
-<script src="../data/promo.js?v=20261103131919"></script>
-<script src="../js/comum.js?v=20261103131919"></script>
-<script src="../js/sacola.js?v=20261103131919"></script>
-<script src="../js/preferencia.js?v=20261103131919"></script>
-<script src="../js/faixa.js?v=20261103131919"></script>
+<script src="../data/catalogo.js?v=20261105004734"></script>
+<script src="../data/promo.js?v=20261105004734"></script>
+<script src="../js/comum.js?v=20261105004734"></script>
+<script src="../js/sacola.js?v=20261105004734"></script>
+<script src="../js/preferencia.js?v=20261105004734"></script>
+<script src="../js/faixa.js?v=20261105004734"></script>
 <script>
 (function(){
 const {C,linkWhatsApp}=Caya, $=(s,r=document)=>r.querySelector(s);
-C.colecoes.forEach(c=>{const a=document.createElement('a'); a.href='../colecao/?linha='+c.id; a.textContent=c.nome; $('#indice').append(a)});
+C.colecoes.forEach(c=>{const a=document.createElement('a'); a.href='../colecao/?linha='+c.id; a.textContent=c.menu||c.nome; $('#indice').append(a)});
 $('#zap').href=linkWhatsApp('Olá! Vim pelo site da Caya.');
 $('#zap-ajuda').href=linkWhatsApp('Olá! Preciso de ajuda com um pedido Caya.');
 /* tabela de aros: padrao brasileiro, circunferencia = aro + 40 mm */

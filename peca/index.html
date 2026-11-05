@@ -7,7 +7,7 @@
 <link rel="icon" href="../assets/marca/favicon.png">
 <meta name="description" content="Diamante natural e ouro 18k.">
 <link rel="preload" href="../assets/fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/site.css?v=20261103131919">
+<link rel="stylesheet" href="../assets/site.css?v=20261105004734">
 <style>
 /* ---------- pagina da peca ---------- */
 .trilha{padding:28px var(--g) 0;font-size:11px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:var(--cinza);font-stretch:110%}
@@ -53,6 +53,9 @@
   font-size:11px;font-weight:400;font-stretch:110%;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;transition:background .3s var(--ease),color .3s}
 .comprar:hover{background:transparent;color:var(--preto)}
 .comprar svg{width:15px;height:15px}
+.comprar.direto{background:transparent;color:var(--preto);margin-top:10px}
+.comprar.direto:hover{background:var(--preto);color:var(--fundo)}
+.nota-especialista{margin-top:12px;font-size:13px;line-height:1.5;color:var(--tinta-2,#5c5c5a)}
 .nota{font-size:13px;color:var(--cinza);margin-top:-14px}
 
 /* secoes que abrem e fecham */
@@ -124,12 +127,12 @@
   <div><b>Ajuda</b><p><a href="../ajuda/?p=trocas">Trocas e devoluções</a><br><a href="../ajuda/?p=garantia">Garantia</a><br><a href="../ajuda/?p=entrega">Prazos e entrega</a><br><a href="../ajuda/?p=aro">Medida do aro</a></p></div>
 </footer>
 
-<script src="../data/catalogo.js?v=20261103131919"></script>
-<script src="../data/promo.js?v=20261103131919"></script>
-<script src="../js/comum.js?v=20261103131919"></script>
-<script src="../js/sacola.js?v=20261103131919"></script>
-<script src="../js/preferencia.js?v=20261103131919"></script>
-<script src="../js/faixa.js?v=20261103131919"></script>
+<script src="../data/catalogo.js?v=20261105004734"></script>
+<script src="../data/promo.js?v=20261105004734"></script>
+<script src="../js/comum.js?v=20261105004734"></script>
+<script src="../js/sacola.js?v=20261105004734"></script>
+<script src="../js/preferencia.js?v=20261105004734"></script>
+<script src="../js/faixa.js?v=20261105004734"></script>
 <script>
 (function(){
 const {C,brl,ct,nomeBanda,corBanda,peca,variacao,rotulo,aPartirDe,lerEndereco,sacola,linkWhatsApp}=Caya;
@@ -142,7 +145,7 @@ const RAIZ='../';
 const OURO={branco:'linear-gradient(135deg,#F4F4F2,#C9C9C6)',amarelo:'linear-gradient(135deg,#F1D88F,#C9A24E)'};
 
 $('#zap').href=linkWhatsApp('Olá! Vim pelo site da Caya.');
-C.colecoes.forEach(c=>$('#indice').append(el('a',{href:'../colecao/?linha='+c.id},c.nome)));
+C.colecoes.forEach(c=>$('#indice').append(el('a',{href:'../colecao/?linha='+c.id},c.menu||c.nome)));
 Caya.montarSacola(RAIZ);
 Caya.montarPreferencia();
 Caya.montarFaixa();
@@ -223,6 +226,11 @@ if(p.consulta){
   b.onclick=()=>{sacola.adicionar(p,{...e}); b.innerHTML=`<span>Na sacola</span>${OK}`;
     setTimeout(()=>b.innerHTML=`<span>Adicionar à sacola</span>${SETA}`,1600); Caya.abrirSacola()};
   acaoBox.append(b);
+  /* aneis de noivado: compra no site (a especialista chama depois) ou direto com ela */
+  if(p.atendimento){
+    acaoBox.append(el('p',{class:'nota-especialista'},'Ao finalizar a compra, uma especialista Caya entra em contato com você.'));
+    acaoBox.append(el('a',{class:'comprar direto',href:linkWhatsApp(`Olá! Quero comprar o ${p.nome} com uma especialista.`),target:'_blank',rel:'noopener'},`<span>Comprar direto com uma especialista</span>${SETA}`));
+  }
 }
 
 /* ---- secoes ---- */
@@ -238,7 +246,7 @@ function montarSecoes(){
   $('.secoes',main).innerHTML=
     secao('Descrição',`<p>${p.texto}</p>`,true)+
     secao('Ficha técnica',ficha)+
-    secao('Entrega e trocas','<p>Frete grátis. Pronta em até 2 semanas. Envio pelos Correios com seguro ou entrega em mãos por portador, conforme o valor. Troca em até 30 dias e arrependimento em 7 dias.</p><p style="margin-top:10px"><a href="../ajuda/?p=trocas">Ler a política completa</a></p>')+
+    secao('Entrega e trocas','<p>Frete grátis. '+(p.atendimento?'Prazo confirmado pela especialista.':'Pronta em até 2 semanas.')+' Envio pelos Correios com seguro ou entrega em mãos por portador, conforme o valor. Troca em até 30 dias e arrependimento em 7 dias.</p><p style="margin-top:10px"><a href="../ajuda/?p=trocas">Ler a política completa</a></p>')+
     secao('Atendimento',`<p>Dúvidas sobre a peça, a medida ou o prazo: <a href="${linkWhatsApp('Olá! Tenho uma dúvida sobre o '+p.nome+'.')}" target="_blank" rel="noopener">fale com uma especialista Caya</a>.</p>`);
 }
 
@@ -302,7 +310,7 @@ if(!outras.length){outras=C.pecas.filter(x=>x.id!==p.id).slice(0,4); titulo='Out
 const mais=el('section',{class:'mais','aria-labelledby':'t-mais'},`<header class="lote-cab"><h2 id="t-mais">${titulo}</h2>${link}</header><div class="pecas"></div>`);
 outras.slice(0,4).forEach(x=>{const v=variacao(x,x.padrao); const q=new URLSearchParams({peca:x.id});
   $('.pecas',mais).append(el('article',{class:'peca'},`<a class="foto" href="?${q}"><img src="${RAIZ+v.fotos[0]}" alt="${x.nome}" loading="lazy" width="1024" height="1272">${Caya.seloFoto(x)}</a>
-    <div class="peca-corpo"><div class="peca-nome"><h3><span class="pequeno">${x.tipo}</span><a class="nome-link" href="?${q}">${x.nome}</a></h3><span class="mono preco-promo">${x.consulta?'sob consulta':Caya.precoHTML(Caya.maisBarata(x),'a partir de ')}</span></div></div>`))});
+    <div class="peca-corpo"><div class="peca-nome"><h3><span class="pequeno">${x.tipo}</span><a class="nome-link" href="?${q}">${x.nome}</a></h3><span class="mono preco-promo">${x.consulta?'sob consulta':Caya.precoHTML(Caya.maisBarata(x),x.atendimento?'':'a partir de ')}</span></div></div>`))});
 main.append(mais);
 })();
 </script>

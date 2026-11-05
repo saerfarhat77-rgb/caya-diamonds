@@ -7,7 +7,7 @@
 <title>Sua conta | Caya Diamonds</title>
 <link rel="icon" href="../assets/marca/favicon.png">
 <link rel="preload" href="../assets/fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/site.css?v=20261103131919">
+<link rel="stylesheet" href="../assets/site.css?v=20261105004734">
 <style>
 .conta{max-width:760px;margin:0 auto;padding:clamp(56px,8vw,120px) var(--g) var(--respiro)}
 .conta h1{font-weight:300;font-stretch:112%;font-size:clamp(32px,3.6vw,52px);line-height:1.05}
@@ -94,7 +94,7 @@
         </div>
         <div class="oferta" id="oferta" hidden><b>15% off na sua primeira compra</b><span>aplicado na sacola</span></div>
         <div id="cb-lista"></div>
-        <p class="regras">Cada compra devolve 15% do valor pago. O cashback é liberado 8 dias depois do pagamento e vale por 3 meses. Ele paga até metade de uma compra.</p>
+        <p class="regras">Cada compra devolve 15% do valor pago, até 8.000 por compra. O cashback é liberado 8 dias depois do pagamento e vale por 3 meses. Ele paga até metade de uma compra.</p>
       </div>
       <div class="bloco">
         <h2>Compras</h2>
@@ -119,16 +119,16 @@
   <div><b>Ajuda</b><p><a href="../ajuda/?p=trocas">Trocas e devoluções</a><br><a href="../ajuda/?p=privacidade">Privacidade</a></p></div>
 </footer>
 
-<script src="../data/catalogo.js?v=20261103131919"></script>
-<script src="../data/promo.js?v=20261103131919"></script>
-<script src="../js/comum.js?v=20261103131919"></script>
-<script src="../js/sacola.js?v=20261103131919"></script>
-<script src="../js/preferencia.js?v=20261103131919"></script>
-<script src="../js/faixa.js?v=20261103131919"></script>
+<script src="../data/catalogo.js?v=20261105004734"></script>
+<script src="../data/promo.js?v=20261105004734"></script>
+<script src="../js/comum.js?v=20261105004734"></script>
+<script src="../js/sacola.js?v=20261105004734"></script>
+<script src="../js/preferencia.js?v=20261105004734"></script>
+<script src="../js/faixa.js?v=20261105004734"></script>
 <script>
 (async function(){
 const {C,brl}=Caya, $=s=>document.querySelector(s);
-C.colecoes.forEach(c=>{const a=document.createElement('a'); a.href='../colecao/?linha='+c.id; a.textContent=c.nome; $('#indice').append(a)});
+C.colecoes.forEach(c=>{const a=document.createElement('a'); a.href='../colecao/?linha='+c.id; a.textContent=c.menu||c.nome; $('#indice').append(a)});
 Caya.montarSacola('../');
 Caya.montarPreferencia();
 Caya.montarFaixa();
