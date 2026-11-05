@@ -927,14 +927,14 @@ window.CAYA = {
   {
    "id": "noivado-redondo-374",
    "colecao": "noivado",
-   "nome": "Round Brilliant 3,09 ct",
+   "nome": "Cushion Cut 3,09 ct",
    "tipo": "Anel",
    "atendimento": true,
-   "resumo": "Diamante redondo de 3,09 ct, com certificado HRD e dois trillions laterais de 0,57 ct no total.",
-   "texto": "Diamante redondo de 3,09 ct, com certificado HRD e dois trillions laterais de 0,57 ct no total. Para as datas que uma vida inteira guarda.",
+   "resumo": "Diamante cushion de 3,09 ct, com certificado HRD e dois trillions laterais de 0,57 ct no total.",
+   "texto": "Diamante cushion de 3,09 ct, com certificado HRD e dois trillions laterais de 0,57 ct no total. Para as datas que uma vida inteira guarda.",
    "ficha": [
     "Diamante central de 3,09 ct",
-    "Lapidação Round Brilliant",
+    "Lapidação Cushion",
     "Dois trillions laterais, 0,57 ct no total",
     "Ouro branco 750 com garras em ouro amarelo 750",
     "Certificado HRD",
