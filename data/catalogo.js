@@ -917,7 +917,7 @@ window.CAYA = {
     {
      "preco": 54230,
      "fotos": [
-      "assets/img/amarelo-oval-410-v3.webp"
+      "assets/img/amarelo-oval-410-v4.webp"
      ],
      "gia": true
     }
