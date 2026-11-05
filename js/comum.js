@@ -297,7 +297,8 @@
     if (mexeu) salvar();
   })();
 
-  window.Caya = { C, brl, ct, nomeBanda, corBanda, peca, variacao, rotulo, aPartirDe,
+  const cert = (v) => v.gia ? 'GIA' : (v.cert || '');
+  window.Caya = { cert, C, brl, ct, nomeBanda, corBanda, peca, variacao, rotulo, aPartirDe,
                   promo: PROMO, precoHTML, precoCartao, parcela10, pctReal, seloFoto, maisBarata,
                   lerEndereco, gravarEndereco, sacola, linkWhatsApp, pedidoWhatsApp,
                   padraoCom, definirOuro, pagar, pagina, naPagina, contaAtiva, sb, sessao, servidor, previa, pagamentoAtivo, ouroPreferido: () => ouroPref, aoMudarOuro: (f) => ouvintesOuro.push(f) };

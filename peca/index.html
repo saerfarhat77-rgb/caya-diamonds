@@ -7,7 +7,7 @@
 <link rel="icon" href="../assets/marca/favicon.png">
 <meta name="description" content="Diamante natural e ouro 18k.">
 <link rel="preload" href="../assets/fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/site.css?v=20261105113722">
+<link rel="stylesheet" href="../assets/site.css?v=20261105115159">
 <style>
 /* ---------- pagina da peca ---------- */
 .trilha{padding:28px var(--g) 0;font-size:11px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:var(--cinza);font-stretch:110%}
@@ -127,12 +127,12 @@
   <div><b>Ajuda</b><p><a href="../ajuda/?p=trocas">Trocas e devoluções</a><br><a href="../ajuda/?p=garantia">Garantia</a><br><a href="../ajuda/?p=entrega">Prazos e entrega</a><br><a href="../ajuda/?p=aro">Medida do aro</a></p></div>
 </footer>
 
-<script src="../data/catalogo.js?v=20261105113722"></script>
-<script src="../data/promo.js?v=20261105113722"></script>
-<script src="../js/comum.js?v=20261105113722"></script>
-<script src="../js/sacola.js?v=20261105113722"></script>
-<script src="../js/preferencia.js?v=20261105113722"></script>
-<script src="../js/faixa.js?v=20261105113722"></script>
+<script src="../data/catalogo.js?v=20261105115159"></script>
+<script src="../data/promo.js?v=20261105115159"></script>
+<script src="../js/comum.js?v=20261105115159"></script>
+<script src="../js/sacola.js?v=20261105115159"></script>
+<script src="../js/preferencia.js?v=20261105115159"></script>
+<script src="../js/faixa.js?v=20261105115159"></script>
 <script>
 (function(){
 const {C,brl,ct,nomeBanda,corBanda,peca,variacao,rotulo,aPartirDe,lerEndereco,sacola,linkWhatsApp}=Caya;
@@ -274,7 +274,7 @@ function atual(){
   $('[data-r=parcela]',main).textContent=p.consulta?'':'ou 10x de '+Caya.parcela10(v.preco)+' sem juros';
   const selo=$('[data-r=selo]',main), real=Caya.pctReal(v), geral=Caya.promo?Caya.promo.percentual:0;
   selo.hidden=p.consulta||!real||real<geral; selo.textContent=`−${real}% em novembro`; selo.classList.toggle('forte',real>geral);
-  $('[data-r=gia]',main).hidden=!v.gia;
+  const gia=$('[data-r=gia]',main); gia.hidden=!Caya.cert(v); gia.textContent='Diamante com certificado '+Caya.cert(v);
   main.querySelectorAll('[data-k]').forEach(b=>b.setAttribute('aria-pressed',String(e[b.dataset.k])===b.dataset.v));
   const r=(k,t)=>{const x=$(`[data-r=${k}]`,main); if(x) x.textContent=t};
   if(e.pts) r('pts',p.pedras||ct(e.pts)+(p.pedras_rotulo?' '+p.pedras_rotulo:''));

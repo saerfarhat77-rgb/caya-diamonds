@@ -51,7 +51,7 @@ window.CAYA = {
    "id": "noivado",
    "nome": "Anéis de Noivado",
    "menu": "Noivado",
-   "linha": "Para as datas que uma vida inteira guarda: o pedido, as bodas, cada aniversário de união. Diamantes de 3 a 4,25 quilates, com certificado GIA.",
+   "linha": "Para as datas que uma vida inteira guarda: o pedido, as bodas, cada aniversário de união. Diamantes de 3 a 4,25 quilates, com certificado GIA ou HRD.",
    "dados": [
     [
      "Pedra",
@@ -59,7 +59,7 @@ window.CAYA = {
     ],
     [
      "Certificado",
-     "GIA"
+     "GIA e HRD"
     ]
    ]
   }
@@ -858,7 +858,8 @@ window.CAYA = {
      "preco": 148250,
      "fotos": [
       "assets/img/espiral-300-v3.webp"
-     ]
+     ],
+     "cert": "HRD"
     }
    ],
    "aros": 1
@@ -889,7 +890,8 @@ window.CAYA = {
      "preco": 400310,
      "fotos": [
       "assets/img/cushion-halo-425-v3.webp"
-     ]
+     ],
+     "cert": "HRD"
     }
    ],
    "aros": 1
@@ -947,7 +949,8 @@ window.CAYA = {
      "preco": 138980,
      "fotos": [
       "assets/img/redondo-374-v3.webp"
-     ]
+     ],
+     "cert": "HRD"
     }
    ],
    "aros": 1
