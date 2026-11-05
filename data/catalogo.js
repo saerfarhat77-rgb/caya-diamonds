@@ -806,18 +806,17 @@ window.CAYA = {
   {
    "id": "noivado-amarelo-retangular-399",
    "colecao": "noivado",
-   "nome": "Fancy Light Yellow Radiant Cut 3,99 ct",
+   "nome": "Fancy Light Yellow Radiant Cut 5,01 ct",
    "tipo": "Anel",
    "atendimento": true,
-   "resumo": "Diamante retangular amarelo Fancy Light Yellow de 3,99 ct, pureza VS2, com pedras laterais em ouro branco 750.",
-   "texto": "Diamante retangular amarelo Fancy Light Yellow de 3,99 ct, pureza VS2, com pedras laterais em ouro branco 750. Para as datas que uma vida inteira guarda.",
+   "resumo": "Diamante retangular Fancy Light Yellow de 5,01 ct com dois diamantes laterais de 0,71 ct no total, cor G, pureza VVS.",
+   "texto": "Diamante retangular Fancy Light Yellow de 5,01 ct com dois diamantes laterais de 0,71 ct no total, cor G, pureza VVS. Para as datas que uma vida inteira guarda.",
    "ficha": [
-    "Diamante central de 3,99 ct",
+    "Diamante central de 5,01 ct",
     "Lapidação Radiant",
     "Cor Fancy Light Yellow",
-    "Pureza VS2",
-    "Pedras laterais",
-    "Ouro branco 750",
+    "Dois diamantes laterais, 0,71 ct no total, cor G, pureza VVS",
+    "Ouro branco 750 com garras em ouro amarelo 750",
     "Certificado GIA",
     "Garantia Caya Diamonds"
    ],
@@ -826,10 +825,10 @@ window.CAYA = {
    "variacoes": [
     {
      "preco": 247690,
-     "gia": true,
      "fotos": [
       "assets/img/amarelo-retangular-399.webp"
-     ]
+     ],
+     "gia": true
     }
    ],
    "aros": 1
@@ -837,19 +836,19 @@ window.CAYA = {
   {
    "id": "noivado-espiral-300",
    "colecao": "noivado",
-   "nome": "Round Brilliant Swirl 3,00 ct",
+   "nome": "Round Brilliant Swirl 2,56 ct",
    "tipo": "Anel",
    "atendimento": true,
-   "resumo": "Diamante redondo de 3,00 ct, cor I, pureza VS2, em aro espiral cravejado com 0,25 ct em diamantes.",
-   "texto": "Diamante redondo de 3,00 ct, cor I, pureza VS2, em aro espiral cravejado com 0,25 ct em diamantes. Para as datas que uma vida inteira guarda.",
+   "resumo": "Diamante redondo de 2,56 ct, cor I, pureza VS1, em aro espiral cravejado com 0,25 ct em diamantes.",
+   "texto": "Diamante redondo de 2,56 ct, cor I, pureza VS1, em aro espiral cravejado com 0,25 ct em diamantes. Para as datas que uma vida inteira guarda.",
    "ficha": [
-    "Diamante central de 3,00 ct",
+    "Diamante central de 2,56 ct",
     "Lapidação Round Brilliant",
     "Cor I",
-    "Pureza VS2",
+    "Pureza VS1",
     "Aro espiral cravejado com 0,25 ct em diamantes",
     "Ouro branco 750",
-    "Certificado GIA",
+    "Certificado HRD",
     "Garantia Caya Diamonds"
    ],
    "eixos": {},
@@ -857,7 +856,6 @@ window.CAYA = {
    "variacoes": [
     {
      "preco": 148250,
-     "gia": true,
      "fotos": [
       "assets/img/espiral-300.webp"
      ]
@@ -868,20 +866,20 @@ window.CAYA = {
   {
    "id": "noivado-cushion-halo-425",
    "colecao": "noivado",
-   "nome": "Cushion Cut Halo 4,25 ct",
+   "nome": "Cushion Cut Halo 5,01 ct",
    "tipo": "Anel",
    "atendimento": true,
-   "resumo": "Diamante cushion de 4,25 ct, cor D, pureza SI2, com halo de diamantes brancos e aro cravejado.",
-   "texto": "Diamante cushion de 4,25 ct, cor D, pureza SI2, com halo de diamantes brancos e aro cravejado. Para as datas que uma vida inteira guarda.",
+   "resumo": "Diamante cushion de 5,01 ct, cor I, pureza VS2, com halo de diamantes rosa naturais de 1,27 ct e aro cravejado.",
+   "texto": "Diamante cushion de 5,01 ct, cor I, pureza VS2, com halo de diamantes rosa naturais de 1,27 ct e aro cravejado. Para as datas que uma vida inteira guarda.",
    "ficha": [
-    "Diamante central de 4,25 ct",
+    "Diamante central de 5,01 ct",
     "Lapidação Cushion",
-    "Cor D",
-    "Pureza SI2",
-    "Halo de diamantes brancos",
+    "Cor I",
+    "Pureza VS2",
+    "Halo de diamantes rosa naturais, 1,27 ct",
     "Aro cravejado",
     "Ouro branco 750",
-    "Certificado GIA",
+    "Certificado HRD",
     "Garantia Caya Diamonds"
    ],
    "eixos": {},
@@ -889,7 +887,6 @@ window.CAYA = {
    "variacoes": [
     {
      "preco": 400310,
-     "gia": true,
      "fotos": [
       "assets/img/cushion-halo-425.webp"
      ]
@@ -903,15 +900,14 @@ window.CAYA = {
    "nome": "Fancy Light Yellow Oval Cut 1,81 ct",
    "tipo": "Anel",
    "atendimento": true,
-   "resumo": "Diamante oval amarelo Fancy Light Yellow de 1,81 ct, pureza VS2, com dois trillions laterais de 0,61 ct, todos com certificado GIA.",
-   "texto": "Diamante oval amarelo Fancy Light Yellow de 1,81 ct, pureza VS2, com dois trillions laterais de 0,61 ct, todos com certificado GIA. Para as datas que uma vida inteira guarda.",
+   "resumo": "Diamante oval Fancy Light Yellow de 1,81 ct com dois trillions laterais de 0,61 ct no total, todos com certificado GIA.",
+   "texto": "Diamante oval Fancy Light Yellow de 1,81 ct com dois trillions laterais de 0,61 ct no total, todos com certificado GIA. Para as datas que uma vida inteira guarda.",
    "ficha": [
     "Diamante central de 1,81 ct",
     "Lapidação Oval",
     "Cor Fancy Light Yellow",
-    "Pureza VS2",
-    "Dois trillions laterais de 0,61 ct, com certificado GIA",
-    "Ouro branco 750",
+    "Dois trillions laterais, 0,61 ct no total",
+    "Ouro branco 750 com garras em ouro amarelo 750",
     "Certificado GIA",
     "Garantia Caya Diamonds"
    ],
@@ -920,10 +916,10 @@ window.CAYA = {
    "variacoes": [
     {
      "preco": 54230,
-     "gia": true,
      "fotos": [
       "assets/img/amarelo-oval-410.webp"
-     ]
+     ],
+     "gia": true
     }
    ],
    "aros": 1
@@ -931,19 +927,15 @@ window.CAYA = {
   {
    "id": "noivado-redondo-374",
    "colecao": "noivado",
-   "nome": "Round Brilliant 3,74 ct",
+   "nome": "Round Brilliant 3,09 ct",
    "tipo": "Anel",
    "atendimento": true,
-   "resumo": "Diamante redondo de 3,74 ct, cor H, pureza VS2, com pedras laterais em aro de ouro branco 750.",
-   "texto": "Diamante redondo de 3,74 ct, cor H, pureza VS2, com pedras laterais em aro de ouro branco 750. Para as datas que uma vida inteira guarda.",
+   "resumo": "Diamante central de 3,09 ct com dois trillions laterais de 0,57 ct no total.",
+   "texto": "Diamante central de 3,09 ct com dois trillions laterais de 0,57 ct no total. Para as datas que uma vida inteira guarda.",
    "ficha": [
-    "Diamante central de 3,74 ct",
-    "Lapidação Round Brilliant",
-    "Cor H",
-    "Pureza VS2",
-    "Pedras laterais",
-    "Ouro branco 750",
-    "Certificado GIA",
+    "Diamante central de 3,09 ct",
+    "Dois trillions laterais, 0,57 ct no total",
+    "Ouro branco 750 com garras em ouro amarelo 750",
     "Garantia Caya Diamonds"
    ],
    "eixos": {},
@@ -951,7 +943,6 @@ window.CAYA = {
    "variacoes": [
     {
      "preco": 138980,
-     "gia": true,
      "fotos": [
       "assets/img/redondo-374.webp"
      ]
@@ -962,19 +953,16 @@ window.CAYA = {
   {
    "id": "noivado-amarelo-retangular-360",
    "colecao": "noivado",
-   "nome": "Fancy Light Yellow Radiant Cut 3,60 ct",
+   "nome": "Fancy Light Yellow Radiant Cut",
    "tipo": "Anel",
    "atendimento": true,
-   "resumo": "Diamante retangular amarelo Fancy Light Yellow de 3,60 ct, pureza VS2, com dois diamantes trapezoidais laterais de 0,71 ct no total.",
-   "texto": "Diamante retangular amarelo Fancy Light Yellow de 3,60 ct, pureza VS2, com dois diamantes trapezoidais laterais de 0,71 ct no total. Para as datas que uma vida inteira guarda.",
+   "resumo": "Diamante retangular Fancy Light Yellow com dois diamantes laterais. A especialista passa as medidas exatas desta peça.",
+   "texto": "Diamante retangular Fancy Light Yellow com dois diamantes laterais. A especialista passa as medidas exatas desta peça. Para as datas que uma vida inteira guarda.",
    "ficha": [
-    "Diamante central de 3,60 ct",
     "Lapidação Radiant",
     "Cor Fancy Light Yellow",
-    "Pureza VS2",
-    "Dois diamantes trapezoidais laterais, 0,71 ct no total",
-    "Ouro branco 750",
-    "Certificado GIA",
+    "Dois diamantes laterais",
+    "Ouro branco 750 com garras em ouro amarelo 750",
     "Garantia Caya Diamonds"
    ],
    "eixos": {},
@@ -982,7 +970,6 @@ window.CAYA = {
    "variacoes": [
     {
      "preco": 142570,
-     "gia": true,
      "fotos": [
       "assets/img/amarelo-retangular-360.webp"
      ]
@@ -993,18 +980,18 @@ window.CAYA = {
   {
    "id": "noivado-amarelo-pera-425",
    "colecao": "noivado",
-   "nome": "Fancy Light Yellow Pear Cut 4,25 ct",
+   "nome": "Fancy Light Yellow Pear Cut 3,00 ct",
    "tipo": "Anel",
    "atendimento": true,
-   "resumo": "Diamante pera amarelo Fancy Light Yellow de 4,25 ct, pureza VS1, com duas pedras laterais de 0,60 ct no total.",
-   "texto": "Diamante pera amarelo Fancy Light Yellow de 4,25 ct, pureza VS1, com duas pedras laterais de 0,60 ct no total. Para as datas que uma vida inteira guarda.",
+   "resumo": "Diamante gota Fancy Light Yellow de 3,00 ct, pureza VS2, com duas gotas laterais de 0,60 ct no total.",
+   "texto": "Diamante gota Fancy Light Yellow de 3,00 ct, pureza VS2, com duas gotas laterais de 0,60 ct no total. Para as datas que uma vida inteira guarda.",
    "ficha": [
-    "Diamante central de 4,25 ct",
+    "Diamante central de 3,00 ct",
     "Lapidação Pear",
     "Cor Fancy Light Yellow",
-    "Pureza VS1",
-    "Duas pedras laterais, 0,60 ct no total",
-    "Ouro branco 750",
+    "Pureza VS2",
+    "Duas gotas laterais, 0,60 ct no total",
+    "Ouro branco 750 com garras em ouro amarelo 750",
     "Certificado GIA",
     "Garantia Caya Diamonds"
    ],
@@ -1013,10 +1000,10 @@ window.CAYA = {
    "variacoes": [
     {
      "preco": 117800,
-     "gia": true,
      "fotos": [
       "assets/img/amarelo-pera-425.webp"
-     ]
+     ],
+     "gia": true
     }
    ],
    "aros": 1
