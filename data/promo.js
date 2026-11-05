@@ -15,8 +15,8 @@ window.CAYA_PROMO = (function () {
     "noivado-amarelo-retangular-399": 210536,
     "noivado-espiral-300": 126011,
     "noivado-cushion-halo-425": 340258,
-    "noivado-amarelo-oval-410": 118133,
-    "noivado-redondo-374": 46090,
+    "noivado-amarelo-oval-410": 46090,
+    "noivado-redondo-374": 118133,
     "noivado-amarelo-retangular-360": 121183,
     "noivado-amarelo-pera-425": 100130
   },
