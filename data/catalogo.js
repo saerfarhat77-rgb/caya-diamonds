@@ -839,8 +839,8 @@ window.CAYA = {
    "nome": "Round Brilliant Swirl 2,56 ct",
    "tipo": "Anel",
    "atendimento": true,
-   "resumo": "Diamante redondo de 2,56 ct, cor I, pureza VS1, em aro espiral cravejado com 0,25 ct em diamantes.",
-   "texto": "Diamante redondo de 2,56 ct, cor I, pureza VS1, em aro espiral cravejado com 0,25 ct em diamantes. Para as datas que uma vida inteira guarda.",
+   "resumo": "Diamante redondo de 2,56 ct, cor I, pureza VS1, com certificado HRD, em aro espiral cravejado com 0,25 ct em diamantes.",
+   "texto": "Diamante redondo de 2,56 ct, cor I, pureza VS1, com certificado HRD, em aro espiral cravejado com 0,25 ct em diamantes. Para as datas que uma vida inteira guarda.",
    "ficha": [
     "Diamante central de 2,56 ct",
     "Lapidação Round Brilliant",
@@ -869,8 +869,8 @@ window.CAYA = {
    "nome": "Cushion Cut Halo 5,01 ct",
    "tipo": "Anel",
    "atendimento": true,
-   "resumo": "Diamante cushion de 5,01 ct, cor I, pureza VS2, com halo de diamantes rosa naturais de 1,27 ct e aro cravejado.",
-   "texto": "Diamante cushion de 5,01 ct, cor I, pureza VS2, com halo de diamantes rosa naturais de 1,27 ct e aro cravejado. Para as datas que uma vida inteira guarda.",
+   "resumo": "Diamante cushion de 5,01 ct, cor I, pureza VS2, com certificado HRD, halo de diamantes rosa naturais de 1,27 ct e aro cravejado.",
+   "texto": "Diamante cushion de 5,01 ct, cor I, pureza VS2, com certificado HRD, halo de diamantes rosa naturais de 1,27 ct e aro cravejado. Para as datas que uma vida inteira guarda.",
    "ficha": [
     "Diamante central de 5,01 ct",
     "Lapidação Cushion",
@@ -930,13 +930,14 @@ window.CAYA = {
    "nome": "Round Brilliant 3,09 ct",
    "tipo": "Anel",
    "atendimento": true,
-   "resumo": "Diamante redondo de 3,09 ct com dois trillions laterais de 0,57 ct no total.",
-   "texto": "Diamante redondo de 3,09 ct com dois trillions laterais de 0,57 ct no total. Para as datas que uma vida inteira guarda.",
+   "resumo": "Diamante redondo de 3,09 ct, com certificado HRD e dois trillions laterais de 0,57 ct no total.",
+   "texto": "Diamante redondo de 3,09 ct, com certificado HRD e dois trillions laterais de 0,57 ct no total. Para as datas que uma vida inteira guarda.",
    "ficha": [
     "Diamante central de 3,09 ct",
     "Lapidação Round Brilliant",
     "Dois trillions laterais, 0,57 ct no total",
     "Ouro branco 750 com garras em ouro amarelo 750",
+    "Certificado HRD",
     "Garantia Caya Diamonds"
    ],
    "eixos": {},
