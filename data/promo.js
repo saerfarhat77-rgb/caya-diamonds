@@ -14,7 +14,7 @@ window.CAYA_PROMO = (function () {
     "colors-collection|pts=50": 6090,
     "noivado-amarelo-retangular-399": 210536,
     "noivado-espiral-300": 126011,
-    "noivado-cushion-halo-425": 57324,
+    "noivado-cushion-halo-425": 340258,
     "noivado-amarelo-oval-410": 118133,
     "noivado-redondo-374": 46090,
     "noivado-amarelo-retangular-360": 121183,

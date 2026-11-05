@@ -888,7 +888,7 @@ window.CAYA = {
    "padrao": {},
    "variacoes": [
     {
-     "preco": 67440,
+     "preco": 400310,
      "gia": true,
      "fotos": [
       "assets/img/cushion-halo-425.webp"
