@@ -900,17 +900,17 @@ window.CAYA = {
   {
    "id": "noivado-amarelo-oval-410",
    "colecao": "noivado",
-   "nome": "Fancy Light Yellow Oval Cut 1,61 ct",
+   "nome": "Fancy Light Yellow Oval Cut 1,81 ct",
    "tipo": "Anel",
    "atendimento": true,
-   "resumo": "Diamante oval amarelo Fancy Light Yellow de 1,61 ct, pureza VS2, com dois trillions laterais de 1,81 ct no total.",
-   "texto": "Diamante oval amarelo Fancy Light Yellow de 1,61 ct, pureza VS2, com dois trillions laterais de 1,81 ct no total. Para as datas que uma vida inteira guarda.",
+   "resumo": "Diamante oval amarelo Fancy Light Yellow de 1,81 ct, pureza VS2, com dois trillions laterais de 0,61 ct, todos com certificado GIA.",
+   "texto": "Diamante oval amarelo Fancy Light Yellow de 1,81 ct, pureza VS2, com dois trillions laterais de 0,61 ct, todos com certificado GIA. Para as datas que uma vida inteira guarda.",
    "ficha": [
-    "Diamante central de 1,61 ct",
+    "Diamante central de 1,81 ct",
     "Lapidação Oval",
     "Cor Fancy Light Yellow",
     "Pureza VS2",
-    "Dois trillions laterais, 1,81 ct no total",
+    "Dois trillions laterais de 0,61 ct, com certificado GIA",
     "Ouro branco 750",
     "Certificado GIA",
     "Garantia Caya Diamonds"
