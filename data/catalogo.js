@@ -824,7 +824,7 @@ window.CAYA = {
    "padrao": {},
    "variacoes": [
     {
-     "preco": 247690,
+     "preco": 350900,
      "fotos": [
       "assets/img/amarelo-retangular-399-v3.webp"
      ],
@@ -855,7 +855,7 @@ window.CAYA = {
    "padrao": {},
    "variacoes": [
     {
-     "preco": 148250,
+     "preco": 210020,
      "fotos": [
       "assets/img/espiral-300-v3.webp"
      ],
@@ -887,7 +887,7 @@ window.CAYA = {
    "padrao": {},
    "variacoes": [
     {
-     "preco": 400310,
+     "preco": 567100,
      "fotos": [
       "assets/img/cushion-halo-425-v3.webp"
      ],
@@ -917,7 +917,7 @@ window.CAYA = {
    "padrao": {},
    "variacoes": [
     {
-     "preco": 54230,
+     "preco": 76820,
      "fotos": [
       "assets/img/amarelo-oval-410-v6.webp"
      ],
@@ -946,7 +946,7 @@ window.CAYA = {
    "padrao": {},
    "variacoes": [
     {
-     "preco": 138980,
+     "preco": 196890,
      "fotos": [
       "assets/img/redondo-374-v3.webp"
      ],
@@ -976,7 +976,7 @@ window.CAYA = {
    "padrao": {},
    "variacoes": [
     {
-     "preco": 142570,
+     "preco": 201980,
      "fotos": [
       "assets/img/amarelo-retangular-360-v5.webp"
      ],
@@ -1007,7 +1007,7 @@ window.CAYA = {
    "padrao": {},
    "variacoes": [
     {
-     "preco": 117800,
+     "preco": 166890,
      "fotos": [
       "assets/img/amarelo-pera-425-v5.webp"
      ],
