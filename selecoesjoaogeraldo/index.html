@@ -4,97 +4,147 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Seleção exclusiva · Caya Goods</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<title>Seleção exclusiva · Caya Diamonds</title>
+<link rel="icon" href="marca/favicon.png">
 <style>
-:root{--bg:#f6f5f2;--card:#fff;--ink:#121212;--mute:#77746e;--line:#e5e2dc;--chip:#eeebe5}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 Inter,system-ui,sans-serif}
-header{text-align:center;padding:36px 16px 10px}
-.logo{font-family:"Cormorant Garamond",serif;font-size:34px;letter-spacing:.32em;font-weight:500;margin:0}
-.tag{color:var(--mute);font-size:11px;letter-spacing:.28em;text-transform:uppercase;margin-top:4px}
-.intro{text-align:center;margin:22px auto 6px;max-width:640px;padding:0 16px}
-.intro h1{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:28px;margin:0}
-.intro p{color:var(--mute);margin:4px 0 0;font-size:13px}
-.wrap{max-width:1180px;margin:auto;padding:0 16px 60px}
-.bar{display:flex;justify-content:flex-end;margin:18px 0 10px;gap:8px;align-items:center;color:var(--mute);font-size:12px}
-.bar select{font:12px Inter,sans-serif;padding:5px 8px;border:1px solid var(--line);border-radius:6px;background:var(--card)}
-h2{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);font-weight:500;margin:34px 0 12px;border-bottom:1px solid var(--line);padding-bottom:8px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;cursor:pointer;transition:border-color .15s}
-.card:hover{border-color:var(--ink)}
-.ph{aspect-ratio:1;background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
-.ph img{width:100%;height:100%;object-fit:cover}
-.ph span{color:var(--mute);font-size:11px;letter-spacing:.2em;text-transform:uppercase}
-.b3d{position:absolute;right:10px;bottom:10px;background:rgba(18,18,18,.85);color:#fff;font-size:10px;letter-spacing:.14em;padding:5px 9px;border-radius:999px}
-.info{padding:12px 14px 14px}
-.t{font-weight:600}
-.s{color:var(--mute);font-size:12px;margin-top:2px}
-.p{margin-top:10px;font-size:18px;font-weight:600}
-.code{font-size:10px;color:var(--mute);letter-spacing:.08em;margin-top:6px}
-.modal{position:fixed;inset:0;background:rgba(10,10,10,.6);display:none;align-items:center;justify-content:center;padding:16px;z-index:9}
+@font-face{font-family:"Archivo";src:url(fonts/archivo-latin-wdth-normal.woff2) format("woff2");font-weight:100 900;font-stretch:62% 125%;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215}
+@font-face{font-family:"Archivo";src:url(fonts/archivo-latin-ext-wdth-normal.woff2) format("woff2");font-weight:100 900;font-stretch:62% 125%;font-display:swap;unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+:root{--fundo:#F5F5F3;--branco:#FFFFFF;--linha:#DCDCD8;--linha-forte:#1A1A1A;--preto:#141414;--texto-2:#4F4F4C;--cinza:#6E6E6A;
+  --ease:cubic-bezier(.16,1,.3,1);--g:clamp(20px,5vw,96px)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--fundo);color:var(--preto);font:300 15px/1.6 "Archivo",system-ui,sans-serif;font-variant-numeric:tabular-nums lining-nums;-webkit-font-smoothing:antialiased}
+::selection{background:var(--preto);color:var(--fundo)}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.pequeno{font-size:11px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;font-stretch:110%;color:var(--cinza)}
+
+.topo{position:sticky;top:0;z-index:5;background:rgba(245,245,243,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--linha)}
+.topo-in{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px var(--g)}
+.marca img{height:20px;width:auto;filter:brightness(0)}
+
+.abre{padding:clamp(48px,6vw,96px) var(--g);text-align:center}
+.abre .pequeno{margin-bottom:16px}
+.abre h1{font-weight:300;font-stretch:108%;font-size:clamp(22px,2.2vw,30px);line-height:1.35;letter-spacing:-.005em;max-width:30ch;margin:0 auto}
+.abre p.sub{color:var(--texto-2);font-size:14px;margin-top:10px}
+
+.lote{margin:0 var(--g) clamp(72px,10vw,150px)}
+.lote-cab{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px 56px;align-items:end;padding-bottom:20px;margin-bottom:clamp(32px,4vw,56px);border-bottom:1px solid var(--linha-forte)}
+.lote-cab h2{font-weight:300;font-stretch:112%;font-size:clamp(24px,2.2vw,32px);line-height:1.1;letter-spacing:.01em}
+.lote-cab dl{display:flex;gap:36px;flex-wrap:wrap;justify-content:flex-end}
+.lote-cab dl div{display:grid;gap:4px}
+.lote-cab dt{font-size:10px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:var(--cinza);font-stretch:110%}
+.lote-cab dd{font-size:13px;font-weight:400;white-space:nowrap}
+
+.pecas{display:grid;gap:clamp(28px,3.4vw,56px) clamp(20px,2.6vw,40px);grid-template-columns:repeat(4,minmax(0,1fr));max-width:1240px}
+.peca{display:flex;flex-direction:column;cursor:pointer}
+.foto{position:relative;aspect-ratio:1;background:#C4C2BE;overflow:hidden}
+.foto img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.peca:hover .foto img{transform:scale(1.025)}
+.foto .vazio{position:absolute;inset:0;display:grid;place-items:center}
+.peca-corpo{padding:16px 0 0;display:flex;flex-direction:column;gap:14px;flex:1}
+.peca-nome{display:flex;justify-content:space-between;align-items:baseline;gap:14px}
+.peca-nome h3{font-weight:400;font-stretch:105%;font-size:15px;line-height:1.3}
+.peca-nome h3 .pequeno{display:block;margin-bottom:5px}
+.preco{font-size:14px;font-weight:400;letter-spacing:.02em;white-space:nowrap}
+.ficha{font-size:12px;color:var(--texto-2);line-height:1.5}
+.acao{margin-top:auto;padding:11px 0;border-bottom:1px solid var(--preto);font-size:11px;font-weight:400;font-stretch:110%;letter-spacing:.18em;text-transform:uppercase;
+  display:flex;justify-content:space-between;align-items:center;width:100%;transition:padding .3s var(--ease),background .3s var(--ease),color .3s}
+.peca:hover .acao{background:var(--preto);color:var(--fundo);padding-inline:12px}
+.acao svg{width:14px;height:14px}
+
+.modal{position:fixed;inset:0;background:rgba(20,20,20,.55);display:none;align-items:center;justify-content:center;padding:16px;z-index:9}
 .modal.on{display:flex}
-.mbox{background:var(--card);border-radius:14px;max-width:920px;width:100%;max-height:94vh;overflow:auto;display:grid;grid-template-columns:1.25fr 1fr}
-@media(max-width:760px){.mbox{grid-template-columns:1fr}}
+.mbox{background:var(--fundo);max-width:980px;width:100%;max-height:94vh;overflow:auto;display:grid;grid-template-columns:1.2fr 1fr}
 .mbox iframe{width:100%;aspect-ratio:1;border:0;display:block;background:#fff}
-.det{padding:22px}
-.det h3{margin:0;font-size:20px}
-.det table{width:100%;border-collapse:collapse;margin-top:14px}
-.det th,.det td{text-align:left;padding:7px 0;border-bottom:1px solid var(--line);font-size:13px}
-.det th{color:var(--mute);font-weight:400;width:45%}
-.det .p{font-size:26px}
-.x{float:right;border:0;background:none;font-size:24px;cursor:pointer;line-height:1;color:var(--mute)}
-.note{margin-top:14px;padding:10px 12px;background:var(--chip);border-radius:8px;font-size:12px}
-footer{text-align:center;color:var(--mute);font-size:11px;padding:20px}
+.det{padding:clamp(22px,3vw,40px);display:flex;flex-direction:column;gap:18px}
+.det-top{display:flex;justify-content:space-between;align-items:center}
+.det h3{font-weight:300;font-stretch:108%;font-size:clamp(22px,2vw,28px);line-height:1.2}
+.det .preco{font-size:clamp(18px,1.6vw,22px)}
+.det table{width:100%;border-collapse:collapse}
+.det th,.det td{text-align:left;padding:9px 0;border-bottom:1px solid var(--linha);font-size:13px;font-weight:400}
+.det th{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--cinza);font-stretch:110%;width:46%}
+.det .nota{font-size:12px;color:var(--texto-2)}
+.fecha{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-stretch:110%;font-weight:400;border-bottom:1px solid var(--preto);padding:4px 0}
+
+.rodape{border-top:1px solid var(--linha);padding:40px var(--g) 48px;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.rodape img{height:30px;width:auto;filter:brightness(0)}
+.rodape p{font-size:12px;color:var(--cinza);max-width:46ch}
+
+@media(max-width:1000px){.pecas{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:760px){
+  .pecas{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 14px}
+  .marca img{height:16px}
+  .lote-cab{grid-template-columns:minmax(0,1fr)}
+  .lote-cab dl{justify-content:flex-start;gap:14px 28px}
+  .mbox{grid-template-columns:1fr}
+  .peca-nome{flex-direction:column;gap:6px}
+}
 </style>
 </head>
 <body>
-<header><p class="logo">CAYA GOODS</p><div class="tag">Diamantes certificados</div></header>
-<div class="intro"><h1 id="tit"></h1><p id="sub"></p></div>
-<div class="wrap">
-  <div class="bar">Ordenar <select id="ord"><option value="p">Menor preço</option><option value="-p">Maior preço</option><option value="-ct">Maior quilate</option></select></div>
-  <div id="main"></div>
-</div>
-<div class="modal" id="m"><div class="mbox"><iframe id="v" allowfullscreen></iframe><div class="det" id="det"></div></div></div>
-<footer>Orçamento exclusivo · valores sujeitos a confirmação de disponibilidade</footer>
+<header class="topo"><div class="topo-in">
+  <span class="marca"><img src="marca/caya-tinta.png" alt="Caya Diamonds" width="454" height="126"></span>
+  <span class="pequeno">Seleção exclusiva</span>
+</div></header>
+
+<section class="abre">
+  <p class="pequeno" id="data"></p>
+  <h1 id="tit"></h1>
+  <p class="sub" id="sub"></p>
+</section>
+
+<div id="main"></div>
+
+<footer class="rodape">
+  <img src="marca/caya-diamonds-tinta.png" alt="Caya Diamonds" width="454" height="159">
+  <p>Diamantes naturais certificados. Valores válidos mediante confirmação de disponibilidade.</p>
+</footer>
+
+<div class="modal" id="m"><div class="mbox"><iframe id="v" allowfullscreen title="Diamante em 3D"></iframe><div class="det" id="det"></div></div></div>
+
 <script>
 const D={"titulo": "Seleção exclusiva", "cliente": "", "data": "11/11/2026", "ctmin": 0, "extra": null, "itens": [{"c": "CG-1XX1BHR", "n": "Redondo", "ct": 2.5, "cor": "M", "pur": "SI1", "lab": "HRD", "cps": "EX / EX / EX", "fl": "Forte", "med": "8.65 × 8.59 × 5.38 mm", "brl": 49140, "foto": true, "extra": false}, {"c": "CG-1MH2QU0", "n": "Redondo", "ct": 2.5, "cor": "M", "pur": "SI2", "lab": "GIA", "cps": "EX / EX / EX", "fl": "Nenhuma", "med": "8.63 × 8.56 × 5.44 mm", "brl": 69384, "foto": true, "extra": false}, {"c": "CG-187NRVH", "n": "Redondo", "ct": 2.5, "cor": "M", "pur": "VVS2", "lab": "GIA", "cps": "EX / EX / EX", "fl": "Forte", "med": "8.71 × 8.66 × 5.38 mm", "brl": 86184, "foto": true, "extra": false}, {"c": "CG-7QPLQJ", "n": "Redondo", "ct": 2.3, "cor": "L", "pur": "VVS1", "lab": "GIA", "cps": "EX / EX / EX", "fl": "Nenhuma", "med": "8.4 × 8.33 × 5.22 mm", "brl": 104250, "foto": true, "extra": false}, {"c": "CG-17Q6U4X", "n": "Redondo", "ct": 2.5, "cor": "K", "pur": "VVS2", "lab": "GIA", "cps": "EX / EX / EX", "fl": "Nenhuma", "med": "8.62 × 8.56 × 5.45 mm", "brl": 127288, "foto": true, "extra": false}, {"c": "CG-1A9DHUL", "n": "Redondo", "ct": 2.5, "cor": "I", "pur": "VVS1", "lab": "GIA", "cps": "EX / EX / EX", "fl": "Média", "med": "8.8 × 8.77 × 5.24 mm", "brl": 155120, "foto": true, "extra": false}, {"c": "CG-SB9NI9", "n": "Redondo", "ct": 2.5, "cor": "G", "pur": "VVS2", "lab": "GIA", "cps": "EX / EX / EX", "fl": "Nenhuma", "med": "8.64 × 8.58 × 5.4 mm", "brl": 228396, "foto": true, "extra": false}]};
-const brl=v=>'R$ '+v.toLocaleString('pt-BR');
+const preco=v=>v.toLocaleString('pt-BR');
 const ct=v=>v.toFixed(2).replace('.',',');
-document.getElementById('tit').textContent=D.titulo+(D.cliente?' — '+D.cliente:'');
-document.getElementById('sub').textContent=D.itens.length+' diamantes selecionados · '+D.data;
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-function card(i,k){return `<div class="card" data-k="${k}">
- <div class="ph">${i.foto?`<img loading="lazy" src="img/${i.c}.jpg" alt="">`:`<span>${esc(i.n)}</span>`}<span class="b3d">3D</span></div>
- <div class="info"><div class="t">${esc(i.n)} ${ct(i.ct)} ct</div>
- <div class="s">Cor ${esc(i.cor)} · ${esc(i.pur)} · ${esc(i.lab)}</div>
- <div class="s">${esc(i.cps)} · Fluor. ${esc(i.fl)}</div>
- <div class="p">${brl(i.brl)}</div><div class="code">${i.c}</div></div></div>`}
-function render(){
-  const o=document.getElementById('ord').value;
-  const key={p:i=>i.brl,'-p':i=>-i.brl,'-ct':i=>-i.ct}[o];
-  const L=D.itens.map((i,k)=>[i,k]).sort((a,b)=>key(a[0])-key(b[0]));
-  const main=L.filter(x=>!x[0].extra), ext=L.filter(x=>x[0].extra);
-  let h='';
-  if(ext.length) h+=`<h2>${ct(D.ctmin)} ct ou mais</h2>`;
-  h+=`<div class="grid">${main.map(x=>card(...x)).join('')}</div>`;
-  if(ext.length) h+=`<h2>${ct(D.extra)} – ${ct(D.ctmin-0.01)} ct · para comparar</h2><div class="grid">${ext.map(x=>card(...x)).join('')}</div>`;
-  document.getElementById('main').innerHTML=h;
-}
+const SETA='<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1"><path d="M1 7h12M8 2l5 5-5 5"/></svg>';
+document.getElementById('data').textContent=D.data;
+document.getElementById('tit').textContent=D.cliente?('Seleção para '+D.cliente):'Diamantes escolhidos para você';
+document.getElementById('sub').textContent='Toque em cada pedra para vê-la girar em 3D.';
+
+function card(i,k){return `<article class="peca" data-k="${k}">
+  <div class="foto">${i.foto?`<img loading="lazy" src="img/${i.c}.jpg" alt="${esc(i.n)} ${ct(i.ct)} ct">`:`<span class="vazio pequeno">${esc(i.n)}</span>`}</div>
+  <div class="peca-corpo">
+    <div class="peca-nome"><h3><span class="pequeno">${esc(i.n)}</span>${ct(i.ct)} ct · Cor ${esc(i.cor)} · ${esc(i.pur)}</h3><span class="preco">${preco(i.brl)}</span></div>
+    <p class="ficha">${esc(i.cps)} · Fluorescência ${esc(i.fl).toLowerCase()} · ${esc(i.lab)}</p>
+    <button class="acao" type="button">Ver em 3D ${SETA}</button>
+  </div></article>`}
+
+function lote(titulo,itens,extra){
+  const cts=itens.map(x=>x[0].ct), labs=[...new Set(itens.map(x=>x[0].lab))].join(' · ');
+  const faixa=Math.min(...cts)===Math.max(...cts)?ct(cts[0])+' ct':ct(Math.min(...cts))+' – '+ct(Math.max(...cts))+' ct';
+  return `<section class="lote"><div class="lote-cab"><h2>${titulo}</h2>
+    <dl><div><dt>Peso</dt><dd>${faixa}</dd></div><div><dt>Certificado</dt><dd>${labs}</dd></div><div><dt>Pedras</dt><dd>${itens.length}</dd></div></dl></div>
+    <div class="pecas">${itens.map(x=>card(...x)).join('')}</div></section>`}
+
+const L=D.itens.map((i,k)=>[i,k]).sort((a,b)=>a[0].brl-b[0].brl);
+const main=L.filter(x=>!x[0].extra), ext=L.filter(x=>x[0].extra);
+const nomeForma=[...new Set(D.itens.map(i=>i.n))].length===1?'Diamantes '+D.itens[0].n.toLowerCase()+'s':'Diamantes';
+document.getElementById('main').innerHTML=lote(nomeForma,main)+(ext.length?lote('Para comparar',ext,true):'');
+
 function abre(k){const i=D.itens[k];
   document.getElementById('v').src='v/Vision360.html?d='+i.c;
-  const L=[['Forma',i.n],['Peso',ct(i.ct)+' ct'],['Cor',i.cor],['Pureza',i.pur],['Lapid. / Polim. / Simetria',i.cps],['Fluorescência',i.fl],['Medidas',i.med],['Certificado',i.lab]];
-  document.getElementById('det').innerHTML=`<button class="x" onclick="fecha()">×</button><h3>${esc(i.n)} ${ct(i.ct)} ct</h3>
-   <div class="p">${brl(i.brl)}</div><table>${L.map(([a,b])=>`<tr><th>${a}</th><td>${esc(b)}</td></tr>`).join('')}</table>
-   <div class="note">Código da pedra: <b>${i.c}</b><br>Envie este código para reservar.</div>`;
+  const T=[['Forma',i.n],['Peso',ct(i.ct)+' ct'],['Cor',i.cor],['Pureza',i.pur],['Lapidação · polimento · simetria',i.cps],['Fluorescência',i.fl],['Medidas',i.med],['Certificado',i.lab]];
+  document.getElementById('det').innerHTML=`<div class="det-top"><span class="pequeno">${esc(i.n)}</span><button class="fecha" type="button" onclick="fecha()">Fechar</button></div>
+   <h3>${ct(i.ct)} ct · Cor ${esc(i.cor)} · ${esc(i.pur)}</h3><span class="preco">${preco(i.brl)}</span>
+   <table>${T.map(([a,b])=>`<tr><th>${a}</th><td>${esc(b)}</td></tr>`).join('')}</table>
+   <p class="nota">Arraste a pedra para girar. Para reservar, fale com sua especialista Caya.</p>`;
   document.getElementById('m').classList.add('on')}
 function fecha(){document.getElementById('m').classList.remove('on');document.getElementById('v').src='about:blank'}
-document.getElementById('main').addEventListener('click',e=>{const c=e.target.closest('.card');if(c)abre(+c.dataset.k)});
+document.getElementById('main').addEventListener('click',e=>{const c=e.target.closest('.peca');if(c)abre(+c.dataset.k)});
 document.getElementById('m').addEventListener('click',e=>{if(e.target.id==='m')fecha()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')fecha()});
-document.getElementById('ord').addEventListener('input',render);
-render();
 </script>
 </body>
 </html>
