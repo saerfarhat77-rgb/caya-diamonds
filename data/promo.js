@@ -18,7 +18,11 @@ window.CAYA_PROMO = (function () {
     "noivado-amarelo-oval-410": 46090,
     "noivado-redondo-374": 118133,
     "noivado-amarelo-retangular-360": 121183,
-    "noivado-amarelo-pera-425": 100130
+    "noivado-amarelo-pera-425": 100130,
+    "halo-stud|pts=10": 2190,
+    "halo-stud|pts=20": 3990,
+    "halo-stud|pts=30": 5790,
+    "halo-stud|pts=50": 8990
   },
   "inicio": "2026-11-01T00:00:00-03:00",
   "fim": "2026-11-30T23:59:59-03:00",
