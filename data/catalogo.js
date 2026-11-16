@@ -586,11 +586,11 @@ window.CAYA = {
    "colecao": "halo",
    "nome": "Halo Stud",
    "tipo": "Par de brincos",
-   "resumo": "Um diamante natural em cada orelha, preso por garras em ouro 18k.",
-   "texto": "O ponto de luz de cada dia: um diamante natural em cada brinco, preso por garras finas em ouro 18k para receber luz de todos os lados. Pino e tarracha em ouro 18k.",
+   "resumo": "Dois diamantes naturais, um em cada orelha, presos por garras em ouro 18k.",
+   "texto": "O ponto de luz de cada dia: duas pedras de diamante natural de {cada}, uma em cada brinco, somando {par} no par. Presas por garras finas em ouro 18k para receber luz de todos os lados. Pino e tarracha em ouro 18k.",
    "ficha": [
     "Par de brincos",
-    "Um diamante natural em cada brinco",
+    "Duas pedras de diamante natural, uma em cada brinco",
     "Ouro 18k",
     "Garantia Caya Diamonds"
    ],
@@ -610,7 +610,7 @@ window.CAYA = {
     "pts": 30,
     "ouro": "branco"
    },
-   "pedras_rotulo": "cada brinco",
+   "par": true,
    "variacoes": [
     {
      "pts": 10,

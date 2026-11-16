@@ -7,7 +7,7 @@
 <link rel="icon" href="../assets/marca/favicon.png">
 <meta name="description" content="Diamante natural e ouro 18k.">
 <link rel="preload" href="../assets/fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/site.css?v=20261116174159">
+<link rel="stylesheet" href="../assets/site.css?v=20261116190020">
 <style>
 /* ---------- pagina da peca ---------- */
 .trilha{padding:28px var(--g) 0;font-size:11px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:var(--cinza);font-stretch:110%}
@@ -127,12 +127,12 @@
   <div><b>Ajuda</b><p><a href="../ajuda/?p=trocas">Trocas e devoluções</a><br><a href="../ajuda/?p=garantia">Garantia</a><br><a href="../ajuda/?p=entrega">Prazos e entrega</a><br><a href="../ajuda/?p=aro">Medida do aro</a></p></div>
 </footer>
 
-<script src="../data/catalogo.js?v=20261116174159"></script>
-<script src="../data/promo.js?v=20261116174159"></script>
-<script src="../js/comum.js?v=20261116174159"></script>
-<script src="../js/sacola.js?v=20261116174159"></script>
-<script src="../js/preferencia.js?v=20261116174159"></script>
-<script src="../js/faixa.js?v=20261116174159"></script>
+<script src="../data/catalogo.js?v=20261116190020"></script>
+<script src="../data/promo.js?v=20261116190020"></script>
+<script src="../js/comum.js?v=20261116190020"></script>
+<script src="../js/sacola.js?v=20261116190020"></script>
+<script src="../js/preferencia.js?v=20261116190020"></script>
+<script src="../js/faixa.js?v=20261116190020"></script>
 <script>
 (function(){
 const {C,brl,ct,nomeBanda,corBanda,peca,variacao,rotulo,aPartirDe,lerEndereco,sacola,linkWhatsApp}=Caya;
@@ -237,14 +237,14 @@ if(p.consulta){
 function secao(titulo,html,aberta){return `<details${aberta?' open':''}><summary>${titulo}${MAIS}</summary><div class="conteudo">${html}</div></details>`}
 function montarSecoes(){
   const linhas=[];
-  if(e.pts) linhas.push(['Diamante',p.pedras?p.pedras:`${e.pts} pontos (${ct(e.pts)})`+(p.pedras_rotulo?' '+p.pedras_rotulo:'')]);
+  if(e.pts) linhas.push(['Diamante',p.pedras?p.pedras:p.par?`2 diamantes de ${ct(e.pts)} · ${ct(e.pts*2)} no par`:`${e.pts} pontos (${ct(e.pts)})`]);
   if(e.banda) linhas.push(['Banda','Silicone premium, '+nomeBanda(e.banda).toLowerCase()]);
   if(e.ouro) linhas.push(['Ouro','18k '+e.ouro]);
   if(variacao(p,e).gia && !p.ficha.some(f=>/GIA/.test(f))) linhas.push(['Certificado','GIA (Gemological Institute of America)']);
   const ficha=`<ul>${linhas.map(([a,b])=>`<li><b>${a}</b><span>${b}</span></li>`).join('')}</ul>
-    <ul class="so-texto" style="margin-top:14px">${p.ficha.map(f=>`<li>${f}</li>`).join('')}</ul>`;
+    <ul class="so-texto" style="margin-top:14px">${p.ficha.map(f=>`<li>${Caya.textoPeca(f,e.pts)}</li>`).join('')}</ul>`;
   $('.secoes',main).innerHTML=
-    secao('Descrição',`<p>${p.texto}</p>`,true)+
+    secao('Descrição',`<p>${Caya.textoPeca(p.texto,e.pts)}</p>`,true)+
     secao('Ficha técnica',ficha)+
     secao('Entrega e trocas','<p>Frete grátis. '+(p.atendimento?'Prazo confirmado pela especialista.':'Pronta em até 2 semanas.')+' Envio pelos Correios com seguro ou entrega em mãos por portador, conforme o valor. Troca em até 30 dias e arrependimento em 7 dias.</p><p style="margin-top:10px"><a href="../ajuda/?p=trocas">Ler a política completa</a></p>')+
     secao('Atendimento',`<p>Dúvidas sobre a peça, a medida ou o prazo: <a href="${linkWhatsApp('Olá! Tenho uma dúvida sobre o '+p.nome+'.')}" target="_blank" rel="noopener">fale com uma especialista Caya</a>.</p>`);
@@ -277,7 +277,7 @@ function atual(){
   const gia=$('[data-r=gia]',main); gia.hidden=!Caya.cert(v); gia.textContent='Diamante com certificado '+Caya.cert(v);
   main.querySelectorAll('[data-k]').forEach(b=>b.setAttribute('aria-pressed',String(e[b.dataset.k])===b.dataset.v));
   const r=(k,t)=>{const x=$(`[data-r=${k}]`,main); if(x) x.textContent=t};
-  if(e.pts) r('pts',p.pedras||ct(e.pts)+(p.pedras_rotulo?' '+p.pedras_rotulo:''));
+  if(e.pts) r('pts',Caya.pedraTxt(p,e.pts));
   if(e.banda) r('banda',nomeBanda(e.banda));
   if(e.ouro) r('ouro',e.ouro[0].toUpperCase()+e.ouro.slice(1));
   montarGaleria(v); montarSecoes();
@@ -292,9 +292,9 @@ if(p.eixos.ouro) Caya.aoMudarOuro(v=>{ e.ouro=v; atual(); });
 if(p.id==='halo-stud'){
   const pos=[12.5,37.5,62.5,87.5];
   const esc=el('section',{class:'escala','aria-labelledby':'t-escala'},`<header class="lote-cab"><h2 id="t-escala">Os quatro tamanhos lado a lado</h2></header>
-    <figure><div class="escala-foto"><img src="${RAIZ}assets/img/stud-escala-branco.webp" alt="Quatro pares de brincos Halo Stud, de 0,10 a 0,50 ct em cada brinco, lado a lado" loading="lazy" width="1536" height="512">
-      ${p.eixos.pts.map((v,i)=>`<button type="button" class="escala-rot" style="left:${pos[i]}%" data-v="${v}">${ct(v)}</button>`).join('')}</div>
-      <figcaption>Pedra de cada brinco. Toque num tamanho para escolher.</figcaption></figure>`);
+    <figure><div class="escala-foto"><img src="${RAIZ}assets/img/stud-escala-branco.webp" alt="Quatro pares de brincos Halo Stud, de 0,20 a 1,00 ct no par, lado a lado" loading="lazy" width="1536" height="512">
+      ${p.eixos.pts.map((v,i)=>`<button type="button" class="escala-rot" style="left:${pos[i]}%" data-v="${v}">${ct(v*2)}</button>`).join('')}</div>
+      <figcaption>Total de quilates do par: duas pedras iguais, uma em cada brinco. Toque num tamanho para escolher.</figcaption></figure>`);
   esc.querySelectorAll('.escala-rot').forEach(b=>b.onclick=()=>{e.pts=+b.dataset.v; atual(); window.scrollTo({top:0,behavior:'smooth'})});
   main.append(esc);
   /* a foto da comparacao acompanha o ouro escolhido (dourada entra quando existir) */

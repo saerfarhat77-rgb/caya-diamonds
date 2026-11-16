@@ -7,7 +7,7 @@
 <link rel="icon" href="../assets/marca/favicon.png">
 <meta name="description" content="Diamante natural e ouro 18k. Caya Colors, Halo, Clássicos e Anéis de Noivado.">
 <link rel="preload" href="../assets/fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/site.css?v=20261116174159">
+<link rel="stylesheet" href="../assets/site.css?v=20261116190020">
 <link rel="preload" as="image" href="../assets/hero/rosa.webp">
 <style>
 /* ---------- hero: um diamante, seis cores (so nesta copia) ---------- */
@@ -107,12 +107,12 @@
   <div><b>Ajuda</b><p><a href="../ajuda/?p=trocas">Trocas e devoluções</a><br><a href="../ajuda/?p=garantia">Garantia</a><br><a href="../ajuda/?p=entrega">Prazos e entrega</a><br><a href="../ajuda/?p=aro">Medida do aro</a></p></div>
 </footer>
 
-<script src="../data/catalogo.js?v=20261116174159"></script>
-<script src="../data/promo.js?v=20261116174159"></script>
-<script src="../js/comum.js?v=20261116174159"></script>
-<script src="../js/sacola.js?v=20261116174159"></script>
-<script src="../js/preferencia.js?v=20261116174159"></script>
-<script src="../js/faixa.js?v=20261116174159"></script>
+<script src="../data/catalogo.js?v=20261116190020"></script>
+<script src="../data/promo.js?v=20261116190020"></script>
+<script src="../js/comum.js?v=20261116190020"></script>
+<script src="../js/sacola.js?v=20261116190020"></script>
+<script src="../js/preferencia.js?v=20261116190020"></script>
+<script src="../js/faixa.js?v=20261116190020"></script>
 <script>
 (function(){
 const {C,brl,ct,nomeBanda,corBanda,variacao,rotulo,aPartirDe,lerEndereco,gravarEndereco,sacola,linkWhatsApp,pedidoWhatsApp}=Caya;
@@ -213,7 +213,7 @@ function montarPeca(p,sozinha){
   const nomes={pts:'Pedra',ouro:'Ouro'};
   for(const k of Object.keys(p.eixos)){
     const g=el('div',{class:'eixo',role:'group','aria-label':nomes[k]});
-    p.eixos[k].forEach(v=>{const b=k==='ouro'?el('button',{type:'button',class:'ouro-b','data-k':k,'data-v':v,'aria-pressed':'false','aria-label':'Ouro '+v,title:'Ouro '+v,style:'background:'+(v==='branco'?'linear-gradient(135deg,#F4F4F2,#C9C9C6)':'linear-gradient(135deg,#F1D88F,#C9A24E)')}):el('button',{type:'button',class:'opc','data-k':k,'data-v':v,'aria-pressed':'false'},ct(v));
+    p.eixos[k].forEach(v=>{const b=k==='ouro'?el('button',{type:'button',class:'ouro-b','data-k':k,'data-v':v,'aria-pressed':'false','aria-label':'Ouro '+v,title:'Ouro '+v,style:'background:'+(v==='branco'?'linear-gradient(135deg,#F4F4F2,#C9C9C6)':'linear-gradient(135deg,#F1D88F,#C9A24E)')}):el('button',{type:'button',class:'opc','data-k':k,'data-v':v,'aria-pressed':'false'},p.par?ct(v*2):ct(v));
       b.onclick=()=>{e[k]=v;atual()}; g.append(b)});
     esc.append(g);
   }

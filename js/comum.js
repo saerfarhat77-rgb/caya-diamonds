@@ -56,6 +56,14 @@
   const maisBarata = (ps) => [].concat(ps).reduce((a, p) => a.concat(p.variacoes), [])
     .reduce((a, b) => (b.preco < a.preco ? b : a));
 
+  /* quilates para mostrar. Par de brincos (p.par): pts e de CADA pedra, mostra o total do par */
+  function pedraTxt(p, pts) {
+    if (p.pedras) return p.pedras;
+    return p.par ? ct(pts * 2) + ' no par · 2 × ' + ct(pts) : ct(pts);
+  }
+  /* texto da peca com a quilatagem escolhida: {cada} = uma pedra, {par} = total do par */
+  const textoPeca = (t, pts) => pts ? t.replace(/\{cada\}/g, ct(pts)).replace(/\{par\}/g, ct(pts * 2)) : t;
+
   function peca(id) { return C.pecas.find((p) => p.id === id); }
 
   function variacao(p, escolha) {
@@ -64,7 +72,7 @@
 
   function rotulo(p, escolha) {
     const partes = [];
-    if (escolha.pts) partes.push(p.pedras || ct(escolha.pts) + (p.pedras_rotulo ? ' ' + p.pedras_rotulo : ''));
+    if (escolha.pts) partes.push(pedraTxt(p, escolha.pts));
     if (escolha.banda) partes.push('banda ' + nomeBanda(escolha.banda).toLowerCase());
     if (escolha.ouro) partes.push('ouro ' + escolha.ouro);
     return partes.join(' · ');
@@ -298,7 +306,7 @@
   })();
 
   const cert = (v) => v.gia ? 'GIA' : (v.cert || '');
-  window.Caya = { cert, C, brl, ct, nomeBanda, corBanda, peca, variacao, rotulo, aPartirDe,
+  window.Caya = { cert, C, brl, ct, pedraTxt, textoPeca, nomeBanda, corBanda, peca, variacao, rotulo, aPartirDe,
                   promo: PROMO, precoHTML, precoCartao, parcela10, pctReal, seloFoto, maisBarata,
                   lerEndereco, gravarEndereco, sacola, linkWhatsApp, pedidoWhatsApp,
                   padraoCom, definirOuro, pagar, pagina, naPagina, contaAtiva, sb, sessao, servidor, previa, pagamentoAtivo, ouroPreferido: () => ouroPref, aoMudarOuro: (f) => ouvintesOuro.push(f) };
